@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <style>
+            body    {background-color: powderblue;}
+            button  {padding: 15px 32px; text-align: center; font-size: 16px;}
+        </style>
+        <script>
+
+            var playerName = "xXxKiller420xXx";
+            var playerButtons = ["Takki1","Takki2","Takki3","Takki4","Takki5","b"];
+            
+            function initButtons() {
+                for(let i = 0; i < playerButtons.length; i++) {
+                    document.getElementById(i).innerHTML = playerButtons[i];
+                }
+                document.getElementById("username").innerHTML = playerName;
+            }
+
+            function updateUsername() {
+                var newName = prompt("Change username to: ", playerName);
+                if(newName == null || newName == ""){
+                    alert("Username invalid!");
+                } else {
+                    playerName = newName;
+                    document.getElementById("username").innerHTML = newName;
+                    debug.log(playerName);
+                }
+            }
+
+            function updateButtons(c){
+                var newButton = prompt("Change button to: ", playerButtons[parseInt(c)]);
+
+                if(newButton == null || newButton == "" || newButton.length > 1) {
+                    alert("One Button only!");
+                } else {
+                    playerButtons[parseInt(c)] = newButton;
+                    document.getElementById(c).innerHTML = playerButtons[parseInt(c)];
+                    debug.log(playerButtons);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" id="username" onclick="updateUsername()">
+            name
+        </button>
+        <button type="button" id="0" onclick="updateButtons(id)">
+            Button1
+        </button>
+        <button type="button" id="1" onclick="updateButtons(id)">
+            Button2
+        </button>
+        <button type="button" id="2" onclick="updateButtons(id)">
+            Button 3
+        </button>
+        <button type="button" id="3" onclick="updateButtons(id)">
+            Button 4
+        </button>
+        <button type="button" id="4" onclick="updateButtons(id)">
+            Button 5
+        </button>
+        <button type="button" id="5" onclick="updateButtons(id)">
+            Button 6
+        </button>
+        <script> initButtons(); </script>
+    </body>
+</html>
