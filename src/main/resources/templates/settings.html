@@ -4,7 +4,8 @@
         <title>Settings</title>
         <style>
             body    {background-color: powderblue;}
-            button  {padding: 15px 32px; text-align: center; font-size: 16px;}
+            button  {width:50%; margin-left:25%; margin-right:25%; padding: 15px 32px; text-align: center; font-size: 16px;}
+            h3      {width:50%; margin-left:25%; margin-right:25%; text-align: center;}
         </style>
         <script>
 
@@ -43,26 +44,29 @@
         </script>
     </head>
     <body>
+        <h3>Username:</h3>
         <button type="button" id="username" onclick="updateUsername()">
             name
         </button>
+        <h3>Jump:</h3>
         <button type="button" id="0" onclick="updateButtons(id)">
             Button1
         </button>
+        <h3>Move Left:</h3>
         <button type="button" id="1" onclick="updateButtons(id)">
             Button2
         </button>
+        <h3>Move Right:</h3>
         <button type="button" id="2" onclick="updateButtons(id)">
             Button 3
         </button>
+        <h3>Crouch:</h3>
         <button type="button" id="3" onclick="updateButtons(id)">
             Button 4
         </button>
+        <h3>Shoot:</h3>
         <button type="button" id="4" onclick="updateButtons(id)">
             Button 5
-        </button>
-        <button type="button" id="5" onclick="updateButtons(id)">
-            Button 6
         </button>
         <script> initButtons(); </script>
     </body>
