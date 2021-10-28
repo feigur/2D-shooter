@@ -48,7 +48,7 @@ public class LoginController {
 
     @RequestMapping(value = "/createAccount", method = RequestMethod.GET)
     public String createAccountGET(User user){
-        return "login";
+        return "createaccount";
     }
 
     @RequestMapping(value = "/createAccount", method = RequestMethod.POST)

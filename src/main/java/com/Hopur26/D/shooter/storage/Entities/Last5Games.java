@@ -9,9 +9,13 @@ import java.util.ArrayList;
 @Embeddable
 public class Last5Games {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ID;
+    private ArrayList<String> last5Games;
 
-    ArrayList<String> last5Games;
+    public Last5Games(){
+        last5Games = new ArrayList<String>(5);
+    }
+
+    public Last5Games(ArrayList<String> last5Games){
+        last5Games = last5Games;
+    }
 }
