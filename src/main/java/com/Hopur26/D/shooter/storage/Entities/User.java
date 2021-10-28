@@ -13,6 +13,9 @@ public class User {
     private String username;
     private String password;
 
+    @Embedded
+    private Last5Games last5Games;
+
 
     public User() {
     }
