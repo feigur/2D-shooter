@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="https://thymeleaf.org">
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
 </head>
 <body>
-
+<h2>Login to your user or create a new user</h2>
+<form action="#" th:action="@{/login}" method="get">
+    <input type="submit" value="Login"/>
+</form>
+<form action="#" th:action="@{/createAccount}" method="get">
+    <input type="submit" value="Create account"/>
+</form>
 </body>
 </html>

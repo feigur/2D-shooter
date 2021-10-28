@@ -4,9 +4,11 @@ import com.Hopur26.D.shooter.Persistance.LoginService;
 import com.Hopur26.D.shooter.Persistance.MainService;
 import com.Hopur26.D.shooter.storage.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+@Controller
 public class MainController {
     private MainService mainService;
 

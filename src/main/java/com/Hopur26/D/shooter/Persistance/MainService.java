@@ -1,5 +1,9 @@
 package com.Hopur26.D.shooter.Persistance;
 
-public interface MainService {
+import java.util.ArrayList;
 
+public interface MainService {
+    ArrayList<String> getLast5Games(long id);
+    ArrayList<Integer> getKeys(int id);
+    void setButtons(ArrayList<Integer> newKeys, Long id);
 }
