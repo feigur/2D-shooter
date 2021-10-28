@@ -6,4 +6,5 @@ import storage.Entities.Account;
 public interface AccountRepository extends JpaRepository<Account, String> {
     Account save(Account account);
     Account get(String accountName);
+    Account findByAccountname(String accountname);
 }

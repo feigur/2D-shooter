@@ -1,0 +1,15 @@
+<html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h2>Login to your account or create a new account</h2>
+<form action="#" th:action="@{/login}"  method="get">
+    <input type="submit" value="Login"/>
+</form>
+<form action="#" th:action="@{/createAccount}"  method="get">
+    <input type="submit" value="Create Account"/>
+</form>
+</body>
+</html>
