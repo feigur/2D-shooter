@@ -12,10 +12,25 @@ public class Last5Games {
     private ArrayList<String> last5Games;
 
     public Last5Games(){
-        last5Games = new ArrayList<String>(5);
+        this.last5Games = new ArrayList<String>(5);
+        for (int i = 0; i < 5; i++) {
+            last5Games.add("x-x");
+        }
     }
 
     public Last5Games(ArrayList<String> last5Games){
-        last5Games = last5Games;
+        this.last5Games = last5Games;
+    }
+
+    public ArrayList<String> addGame(String score) {
+        for (int i = 3; i > -1; i--) {
+            this.last5Games.set(i+1,last5Games.get(i));
+        }
+        this.last5Games.set(0,score);
+        return last5Games;
+    }
+
+    public ArrayList<String> getLast5Games(){
+        return last5Games;
     }
 }

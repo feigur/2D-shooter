@@ -16,12 +16,15 @@ public class User {
     @Embedded
     private Last5Games last5Games;
 
+    @Embedded
+    private KeyBinds keyBinds;
+
 
     public User() {
     }
 
-    public User(String accountname, String password) {
-        this.username = accountname;
+    public User(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
