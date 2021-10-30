@@ -16,6 +16,21 @@ public class MainController {
         this.mainService = mainService;
     }
 
+    @RequestMapping("/")
+    public String homePage(){
+        return "select";
+    }
+
+    @RequestMapping(value = "/createAccount", method = RequestMethod.GET)
+    public String createAccountGET(User user){
+        return "createaccount";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loginGET(User user){
+        return "login";
+    }
+
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String mainGet(User user){
         return "main";
@@ -31,9 +46,6 @@ public class MainController {
         return "history";
     }
 
-    @RequestMapping("/")
-    public String homePage(){
-        return "select";
-    }
+
 
 }

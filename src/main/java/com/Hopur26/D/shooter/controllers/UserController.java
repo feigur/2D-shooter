@@ -21,11 +21,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginGET(User user){
-        return "login";
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginPOST(User user, BindingResult result, Model model, HttpSession session){
         if(result.hasErrors()){
@@ -38,11 +33,6 @@ public class UserController {
             return "redirect:/main";
         }
         return "login";
-    }
-
-    @RequestMapping(value = "/createAccount", method = RequestMethod.GET)
-    public String createAccountGET(User user){
-        return "createaccount";
     }
 
     @RequestMapping(value = "/createAccount", method = RequestMethod.POST)
