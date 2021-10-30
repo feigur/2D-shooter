@@ -15,9 +15,15 @@ public class User {
     private String password;
 
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride( name = "last5Games", column = @Column(name = "last_5_games"))
+    })
     private Last5Games last5Games;
 
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride( name = "myKeys", column = @Column(name = "my_keys"))
+    })
     private KeyBinds keyBinds;
 
 

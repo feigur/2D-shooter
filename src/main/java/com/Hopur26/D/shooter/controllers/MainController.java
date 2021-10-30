@@ -4,8 +4,11 @@ import com.Hopur26.D.shooter.Persistance.MainService;
 import com.Hopur26.D.shooter.storage.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
@@ -37,8 +40,13 @@ public class MainController {
     }
 
     @RequestMapping(value = "/settings", method = RequestMethod.GET)
-    public String settingsGet(User user){
-        return "settings";
+    public String settingsGet(HttpSession session, Model model){
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        if(sessionUser  != null){
+            model.addAttribute("LoggedInUser", sessionUser);
+            return "settings";
+        }
+        return "redirect:/Main";
     }
 
     @RequestMapping(value = "/history", method = RequestMethod.GET)

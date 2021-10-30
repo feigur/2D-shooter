@@ -24,28 +24,29 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginPOST(User user, BindingResult result, Model model, HttpSession session){
         if(result.hasErrors()){
-            return "login";
+            return "redirect:/login";
         }
         User exists = userService.login(user);
         if(exists != null){
-            session.setAttribute("LoggedInAccount", exists);
-            model.addAttribute("LoggedInAccount", exists);
+            session.setAttribute("LoggedInUser", exists);
+            model.addAttribute("LoggedInUser", exists);
             return "redirect:/main";
         }
-        return "login";
+        return "redirect:/login";
     }
 
     @RequestMapping(value = "/createAccount", method = RequestMethod.POST)
-    public String createAccountPOST(User user, BindingResult result, Model model){
+    public String createAccountPOST(User user, BindingResult result, Model model, HttpSession session){
         if(result.hasErrors()){
             return "redirect:/createAccount";
         }
         User exists = userService.findByUsername(user.getUsername());
         if(exists == null){
             userService.save(user);
-            model.addAttribute("LoggedInAccount", user);
+            return "redirect:/login";
         }
-        return "redirect:/main";
+        return "redirect:/createAccount";
     }
+
 
 }
