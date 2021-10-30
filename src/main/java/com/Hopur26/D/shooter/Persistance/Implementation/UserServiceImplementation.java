@@ -3,15 +3,17 @@ package com.Hopur26.D.shooter.Persistance.Implementation;
 import com.Hopur26.D.shooter.storage.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.Hopur26.D.shooter.Persistance.LoginService;
+import com.Hopur26.D.shooter.Persistance.UserService;
 import com.Hopur26.D.shooter.storage.Repository.UserRepository;
 
+import java.util.ArrayList;
+
 @Service
-public class LoginServiceImplementation implements LoginService {
+public class UserServiceImplementation implements UserService {
     private UserRepository userRepository;
 
     @Autowired
-    public LoginServiceImplementation(UserRepository userRepository){
+    public UserServiceImplementation(UserRepository userRepository){
         this.userRepository = userRepository;
     }
 
@@ -40,6 +42,24 @@ public class LoginServiceImplementation implements LoginService {
             }
         }
         return null;
+    }
+
+    @Override
+    public void setKeys(User user,ArrayList<Integer> newKeys){
+        user.setKeys(newKeys);
+
+    }
+
+    public ArrayList<Integer> getKeys(User user){
+        return user.getKeys();
+    }
+
+    public void addGame(User user, String lastGame){
+        user.addGame(lastGame);
+    }
+
+    public ArrayList<String> getLast5Games(User user){
+        return user.getLast5Games();
     }
 
 }

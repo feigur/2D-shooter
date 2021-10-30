@@ -8,23 +8,17 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.Hopur26.D.shooter.Persistance.LoginService;
+import com.Hopur26.D.shooter.Persistance.UserService;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class LoginController {
-    private LoginService loginService;
+public class UserController {
+    private UserService userService;
 
     @Autowired
-    public LoginController(LoginService loginService){
-        this.loginService = loginService;
-    }
-
-
-    @RequestMapping("/")
-    public String homePage(){
-        return "select";
+    public UserController(UserService userService){
+        this.userService = userService;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -37,7 +31,7 @@ public class LoginController {
         if(result.hasErrors()){
             return "login";
         }
-        User exists = loginService.login(user);
+        User exists = userService.login(user);
         if(exists != null){
             session.setAttribute("LoggedInAccount", exists);
             model.addAttribute("LoggedInAccount", exists);
@@ -56,9 +50,9 @@ public class LoginController {
         if(result.hasErrors()){
             return "redirect:/createAccount";
         }
-        User exists = loginService.findByUsername(user.getUsername());
+        User exists = userService.findByUsername(user.getUsername());
         if(exists == null){
-            loginService.save(user);
+            userService.save(user);
             model.addAttribute("LoggedInAccount", user);
         }
         return "redirect:/main";

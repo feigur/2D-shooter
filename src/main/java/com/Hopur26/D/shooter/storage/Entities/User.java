@@ -1,6 +1,7 @@
 package com.Hopur26.D.shooter.storage.Entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "users")
@@ -53,4 +54,19 @@ public class User {
         this.password = password;
     }
 
+    public ArrayList<Integer> getKeys(){
+        return this.keyBinds.getKeys();
+    }
+
+    public ArrayList<String> getLast5Games(){
+        return this.last5Games.getLast5Games();
+    }
+
+    public void setKeys(ArrayList<Integer> keyBinds){
+        this.keyBinds.setKeys(keyBinds);
+    }
+
+    public void addGame(String lastGame){
+        this.last5Games.addGame(lastGame);
+    }
 }

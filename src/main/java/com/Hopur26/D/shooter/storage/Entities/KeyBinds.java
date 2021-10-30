@@ -20,12 +20,12 @@ public class KeyBinds {
         this.myKeys = myKeys;
     }
 
-    public ArrayList<Integer> setKeyBinds(ArrayList<Integer> myKeys){
+    public ArrayList<Integer> setKeys(ArrayList<Integer> myKeys){
         this.myKeys = myKeys;
         return myKeys;
     }
 
-    public ArrayList<Integer> getMyKeys(){
+    public ArrayList<Integer> getKeys(){
         return myKeys;
     }
     
