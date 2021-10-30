@@ -35,12 +35,17 @@ public class MainController {
     }
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
-    public String mainGet(User user){
+    public String mainGet(HttpSession session, Model model){
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        if(sessionUser  != null){
+            model.addAttribute("LoggedInUser", sessionUser);
+            return "main";
+        }
         return "main";
     }
 
     @RequestMapping(value = "/settings", method = RequestMethod.GET)
-    public String settingsGet(HttpSession session, Model model){
+    public String settingsGet(User user,HttpSession session, Model model){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser  != null){
             model.addAttribute("LoggedInUser", sessionUser);

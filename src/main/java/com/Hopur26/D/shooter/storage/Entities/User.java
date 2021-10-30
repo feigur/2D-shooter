@@ -28,11 +28,14 @@ public class User {
 
 
     public User() {
+
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, KeyBinds keyBinds, Last5Games last5Games) {
         this.username = username;
         this.password = password;
+        this.keyBinds = keyBinds;
+        this.last5Games = last5Games;
     }
 
 

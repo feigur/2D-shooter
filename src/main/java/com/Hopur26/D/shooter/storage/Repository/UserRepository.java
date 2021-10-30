@@ -1,5 +1,6 @@
 package com.Hopur26.D.shooter.storage.Repository;
 
+import com.Hopur26.D.shooter.storage.Entities.Last5Games;
 import com.Hopur26.D.shooter.storage.Entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
