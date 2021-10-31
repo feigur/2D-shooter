@@ -33,6 +33,11 @@ public class User {
 
     }
 
+    public User(KeyBinds keyBinds, Last5Games last5Games){
+        this.keyBinds = keyBinds;
+        this.last5Games = last5Games;
+    }
+
     public User(String username, String password, KeyBinds keyBinds, Last5Games last5Games) {
         this.username = username;
         this.password = password;
@@ -66,7 +71,9 @@ public class User {
     }
 
     public ArrayList<Integer> getKeys(){
-        return this.keyBinds.getKeys();
+        ArrayList<Integer> keys = this.keyBinds.getKeys();
+        System.out.println(keys);
+        return keys;
     }
 
     public JSONArray getKeysJSON(){
@@ -80,6 +87,14 @@ public class User {
 
     public ArrayList<String> getLast5Games(){
         return this.last5Games.getLast5Games();
+    }
+
+    public void setKeyBinds(KeyBinds keyBinds){
+        this.keyBinds = keyBinds;
+    }
+
+    public void setLast5Games(Last5Games last5Games){
+        this.last5Games = last5Games;
     }
 
     public void setKeys(ArrayList<Integer> keyBinds){

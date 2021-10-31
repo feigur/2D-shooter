@@ -1,6 +1,8 @@
 package com.Hopur26.D.shooter.controllers;
 
 import com.Hopur26.D.shooter.Persistance.MainService;
+import com.Hopur26.D.shooter.storage.Entities.KeyBinds;
+import com.Hopur26.D.shooter.storage.Entities.Last5Games;
 import com.Hopur26.D.shooter.storage.Entities.User;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,10 +48,11 @@ public class MainController {
     }
 
     @RequestMapping(value = "/settings", method = RequestMethod.GET)
-    public String settingsGet(User user,HttpSession session, Model model){
+    public String settingsGet(User user, HttpSession session, Model model){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser  != null){
             model.addAttribute("LoggedInUser", sessionUser);
+            model.addAttribute("keys",sessionUser.getKeys());
             return "settings";
         }
         return "redirect:/Main";

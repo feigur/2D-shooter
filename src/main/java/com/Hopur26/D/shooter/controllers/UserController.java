@@ -1,6 +1,8 @@
 package com.Hopur26.D.shooter.controllers;
 
 
+import com.Hopur26.D.shooter.storage.Entities.KeyBinds;
+import com.Hopur26.D.shooter.storage.Entities.Last5Games;
 import com.Hopur26.D.shooter.storage.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,13 +38,13 @@ public class UserController {
     }
 
     @RequestMapping(value = "/createAccount", method = RequestMethod.POST)
-    public String createAccountPOST(User user, BindingResult result, Model model, HttpSession session){
+    public String createAccountPOST(User user, KeyBinds keyBinds, Last5Games last5Games, BindingResult result, Model model, HttpSession session){
         if(result.hasErrors()){
             return "redirect:/createAccount";
         }
         User exists = userService.findByUsername(user.getUsername());
         if(exists == null){
-            userService.save(user);
+            userService.create(user,keyBinds,last5Games);
             return "redirect:/login";
         }
         return "redirect:/createAccount";

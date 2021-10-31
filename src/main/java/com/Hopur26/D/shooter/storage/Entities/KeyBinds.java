@@ -9,11 +9,11 @@ public class KeyBinds {
 
     public KeyBinds(){
         this.myKeys = new ArrayList<Integer>(5);
-        this.myKeys.set(0,65); // key Id for a
-        this.myKeys.set(1,68); // key Id for d
-        this.myKeys.set(2,83); // key Id for s
-        this.myKeys.set(3,87); // key Id for w
-        this.myKeys.set(4,32); // key Id for space
+        this.myKeys.add(65); // key Id for a
+        this.myKeys.add(68); // key Id for d
+        this.myKeys.add(83); // key Id for s
+        this.myKeys.add(87); // key Id for w
+        this.myKeys.add(32); // key Id for space
     }
 
     public KeyBinds(ArrayList<Integer> myKeys){

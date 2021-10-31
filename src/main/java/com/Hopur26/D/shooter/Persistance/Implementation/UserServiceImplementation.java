@@ -1,5 +1,7 @@
 package com.Hopur26.D.shooter.Persistance.Implementation;
 
+import com.Hopur26.D.shooter.storage.Entities.KeyBinds;
+import com.Hopur26.D.shooter.storage.Entities.Last5Games;
 import com.Hopur26.D.shooter.storage.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,12 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public User save(User user) {
+        return userRepository.save(user);
+    }
+
+    public User create(User user, KeyBinds keyBinds, Last5Games last5Games) {
+        user.setKeyBinds(keyBinds);
+        user.setLast5Games(last5Games);
         return userRepository.save(user);
     }
 
