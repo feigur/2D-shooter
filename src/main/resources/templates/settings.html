@@ -14,7 +14,7 @@
 
             function initButtons() {
                 for(let i = 0; i < playerButtons.length; i++) {
-                    document.getElementById(i).innerHTML = playerButtons[i];
+                    document.getElementById(i).innerHTML =  String.fromCharCode(playerButtons[i]);
                 }
                 document.getElementById("username").innerHTML = playerName;
             }
@@ -68,12 +68,9 @@
         <button type="button" id="4" onclick="updateButtons(id)">
             Button 5
         </button>
-        <button type="button" id="5" onclick="updateButtons(id)">
+        <button type="button" id="5" onclick="updateButtons(id)">>
             Submit
         </button>
-        <tr th:each="key, iterstat: ${keys}">
-            <td th:text="${key}"></td>
-        </tr>
         <script> initButtons(); </script>
     </body>
 </html>

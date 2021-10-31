@@ -50,4 +50,16 @@ public class UserController {
         return "redirect:/createAccount";
     }
 
+    /*@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
+    public String updateUserPOST(BindingResult result, Model model, HttpSession session){
+        if(result.hasErrors()){
+            return "redirect:/updateUser";
+        }
+        User user = model.getAttribute("LoggedInUser");
+        model.getAttribute("keys");
+        return "redirect:/main";
+    }*/
+
+
+
 }
