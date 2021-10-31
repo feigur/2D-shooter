@@ -58,6 +58,10 @@ public class UserServiceImplementation implements UserService {
 
     }
 
+    public void setName(User user, String name){
+        user.setUsername(name);
+    }
+
     public ArrayList<Integer> getKeys(User user){
         return user.getKeys();
     }

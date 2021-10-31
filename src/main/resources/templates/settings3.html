@@ -2,19 +2,88 @@
 <html xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Settings</title>
+    <style>
+            body    {background-color: powderblue;}
+            button  {width:50%; margin-left:25%; margin-right:25%; padding: 15px 32px; text-align: center; font-size: 16px;}
+            h3      {width:50%; margin-left:25%; margin-right:25%; text-align: center;}
+        </style>
+    <script>
+            var playerName = "[[${LoggedInUser.username}]]";
+            var playerButtons = [[${keys}]];
+
+            function initButtons() {
+                for(let i = 0; i < playerButtons.length; i++) {
+                    if (playerButtons[i] == 32){
+                        document.getElementById(i).innerHTML =  "Space";
+                    }
+                    else{
+                        document.getElementById(i).innerHTML =  String.fromCharCode(playerButtons[i]);
+                    }
+
+                }
+                document.getElementById("username").innerHTML = playerName;
+            }
+
+            function updateUsername() {
+                var newName = prompt("Change username to: ", playerName);
+                if(newName == null || newName == ""){
+                    alert("Username invalid!");
+                } else {
+                    playerName = newName;
+                    document.getElementById("username").innerHTML = newName;
+                    debug.log(playerName);
+                }
+            }
+
+            function updateButtons(c){
+                var newButton = prompt("Change button to: ", playerButtons[parseInt(c)]);
+
+                if(newButton == null || newButton == "" || newButton.length > 1) {
+                    alert("One Button only!");
+                } else {
+                    button_id = parseInt(newButton.toUpperCase().charCodeAt(0));
+                    if(playerButtons.includes(button_id)){
+                        alert("Button in use");
+                    }
+                    else{
+                        playerButtons[parseInt(c)] = button_id
+                        initButtons();
+                        debug.log(playerButtons);
+                    }
+                }
+            }
+        </script>
 </head>
 <body>
-<h2>Login to your user</h2>
-<form action="#" th:action="@{/login}" th:object="${user}"  method="post">
-    <input type="text" name="username" id="username" th:field="*{username}"/>
-    <input type="text" name="password" id="password" th:value="*{password}"/>
-    <input type="submit" value="Login"/>
-</form>
-<form action="#" th:action="@{/login}" th:object="${user}"  method="post">
-    <input type="text" name="username" id="username" th:field="*{username}"/>
-    <input type="text" name="password" id="password" th:value="*{password}"/>
-    <input type="submit" value="Login"/>
-</form>
+<h3>Username:</h3>
+<button type="button" id="username" onclick="updateUsername()">
+    <p th:text="${LoggedInUser.username}"></p>
+</button>
+<h3>Jump:</h3>
+<button type="button" id="0" onclick="updateButtons(id)">
+    Button1
+</button>
+<h3>Move Left:</h3>
+<button type="button" id="1" onclick="updateButtons(id)">
+    Button2
+</button>
+<h3>Move Right:</h3>
+<button type="button" id="2" onclick="updateButtons(id)">
+    Button 3
+</button>
+<h3>Crouch:</h3>
+<button type="button" id="3" onclick="updateButtons(id)">
+    Button 4
+</button>
+<h3>Shoot:</h3>
+<button type="button" id="4" onclick="updateButtons(id)">
+    Button 5
+</button>
+<h3></h3>
+<button type="button" id="5" onclick="updateButtons(id)">>
+    Submit
+</button>
+<script> initButtons(); </script>
 </body>
 </html>

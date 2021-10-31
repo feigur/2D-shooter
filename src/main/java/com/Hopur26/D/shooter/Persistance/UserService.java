@@ -12,6 +12,7 @@ public interface UserService {
     void delete(User user);
     User findByUsername(String username);
     User login(User user);
+    void setName(User user, String name);
 
     ArrayList<String> getLast5Games(User user);
     ArrayList<Integer> getKeys(User user);

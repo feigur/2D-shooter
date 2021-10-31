@@ -70,6 +70,9 @@ public class User {
         this.password = password;
     }
 
+    public KeyBinds getKeyBinds(){
+        return this.keyBinds;
+    }
     public ArrayList<Integer> getKeys(){
         ArrayList<Integer> keys = this.keyBinds.getKeys();
         System.out.println(keys);

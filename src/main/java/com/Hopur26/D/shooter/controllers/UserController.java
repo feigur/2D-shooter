@@ -11,8 +11,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.Hopur26.D.shooter.Persistance.UserService;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -50,15 +54,16 @@ public class UserController {
         return "redirect:/createAccount";
     }
 
-    /*@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
-    public String updateUserPOST(BindingResult result, Model model, HttpSession session){
+    @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
+    public String updateUserPOST(@RequestParam(value="myArray[]") Integer[] test, User user, Model model, BindingResult result, HttpSession session){
         if(result.hasErrors()){
             return "redirect:/updateUser";
         }
-        User user = model.getAttribute("LoggedInUser");
-        model.getAttribute("keys");
+        System.out.println(test);
+        //userService.setName(user,test);
+        userService.save(user);
         return "redirect:/main";
-    }*/
+    }
 
 
 
