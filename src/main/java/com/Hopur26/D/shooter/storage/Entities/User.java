@@ -1,5 +1,7 @@
 package com.Hopur26.D.shooter.storage.Entities;
 
+import org.json.JSONArray;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 
@@ -65,6 +67,15 @@ public class User {
 
     public ArrayList<Integer> getKeys(){
         return this.keyBinds.getKeys();
+    }
+
+    public JSONArray getKeysJSON(){
+        JSONArray keyJSON = new JSONArray();
+        for(int i = 0; i < 5; i++){
+            keyJSON.put(this.keyBinds.getKeys().get(i));
+
+        }
+        return keyJSON;
     }
 
     public ArrayList<String> getLast5Games(){

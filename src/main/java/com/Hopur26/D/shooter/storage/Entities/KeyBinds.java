@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 @Embeddable
 public class KeyBinds {
-    ArrayList<Integer> myKeys;
+    private ArrayList<Integer> myKeys;
 
     public KeyBinds(){
         this.myKeys = new ArrayList<Integer>(5);

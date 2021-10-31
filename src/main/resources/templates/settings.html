@@ -9,8 +9,8 @@
             h3      {width:50%; margin-left:25%; margin-right:25%; text-align: center;}
         </style>
         <script>
-            var playerName = "xXxKiller420xXx";
-            var playerButtons = ["Takki1","Takki2","Takki3","Takki4","Takki5","b"];
+            var playerName = "[[${LoggedInUser.username}]]";
+            var playerButtons = ["Takki1","Takki2","Takki3","Takki4","Takki5"];
 
             function initButtons() {
                 for(let i = 0; i < playerButtons.length; i++) {
@@ -67,6 +67,9 @@
         <h3>Shoot:</h3>
         <button type="button" id="4" onclick="updateButtons(id)">
             Button 5
+        </button>
+        <button type="button" id="5" onclick="updateButtons(id)">
+            Submit
         </button>
         <script> initButtons(); </script>
     </body>
