@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <title>History</title>
@@ -7,14 +7,14 @@
             body    {background-color: powderblue;}
         </style>
         <script>
-
-            var last5Games = ["5-1","3-5","2-5","5-4","0-5"];
+            //Get last5Games to work, says it is undefined
+            var last5Games = [[${lastGames}]];
 
             function updateLists() {
                 for(let i = 0; i<last5Games.length;i++) {
-                    var x = document.createElement("LI");
-                    x.append(last5Games[i]);
-                    document.getElementById("gameList").append(x);
+                    var y = document.createElement("LI");
+                    y.append(last5Games[i]);
+                    document.getElementById("gameList").append(y);
                 }
             }
         </script>

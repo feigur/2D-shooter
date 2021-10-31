@@ -59,8 +59,14 @@ public class MainController {
     }
 
     @RequestMapping(value = "/history", method = RequestMethod.GET)
-    public String historyGet(User user){
-        return "history";
+    public String historyGet(User user, HttpSession session, Model model){
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        if(sessionUser  != null){
+            model.addAttribute("LoggedInUser", sessionUser);
+            model.addAttribute("lastGames",sessionUser.getLast5Games());
+            return "history";
+        }
+        return "redirect:/Main";
     }
 
 
