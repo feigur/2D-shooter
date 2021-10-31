@@ -10,7 +10,7 @@
         </style>
         <script>
             var playerName = "[[${LoggedInUser.username}]]";
-            var playerButtons = "[[${keys}]]";
+            var playerButtons = [[${keys}]];
 
             function initButtons() {
                 for(let i = 0; i < playerButtons.length; i++) {
