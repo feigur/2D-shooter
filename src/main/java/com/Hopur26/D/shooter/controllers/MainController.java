@@ -63,7 +63,7 @@ public class MainController {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser  != null){
             model.addAttribute("LoggedInUser", sessionUser);
-            model.addAttribute("lastGames",sessionUser.getLast5Games());
+            model.addAttribute("last5Games",sessionUser.getLast5Games());
             return "history";
         }
         return "redirect:/Main";
