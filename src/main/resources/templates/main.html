@@ -11,6 +11,9 @@
         <form action="#" th:action="@{/history}" method="get">
             <input type="submit" value="History"/>
         </form>
+        <form action="#" th:action="@{/game}" method="get">
+            <input type="submit" value="New Game"/>
+        </form>
         <p th:text="${LoggedInUser.username}"></p>
     </body>
 </html>

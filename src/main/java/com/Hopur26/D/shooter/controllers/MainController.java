@@ -69,6 +69,17 @@ public class MainController {
         return "redirect:/Main";
     }
 
+    @RequestMapping(value = "/game", method = RequestMethod.GET)
+    public String gameGet(User user, HttpSession session, Model model){
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        if(sessionUser  != null) {
+            model.addAttribute("LoggedInUser", sessionUser);
+            return "game";
+        }
+        return "redirect:/Main";
+    }
+
+
 
 
 }
