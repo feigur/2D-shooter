@@ -8,6 +8,13 @@ var liturAFugl = vec4(1.0, 1.0, 1.0, 1.0);
 var fuglErLifandi = true;
 var hleyptAf = false;
 var skot = 4;
+var killCounter = 0;
+const button = [37,39,32] // left right shoot
+var start = new Date().getTime();
+
+
+let counterDisplayElem = document.querySelector('.counter-display');
+
 
 
 var mouseX;             // Old value of x-coordinate
@@ -113,7 +120,29 @@ window.onload = function init() {
     });
 
     window.addEventListener("keydown", function(e){
-        if(e.keyCode == 32 && !hleyptAf){
+        if(e.keyCode == button[0]) {
+            for(i=0; i<3; i++) {
+                verticesB[i][0] -= 0.04;
+            }
+
+            gl.bufferSubData(gl.ARRAY_BUFFER, 0, flatten(verticesB));
+        }
+    });
+
+    window.addEventListener("keydown", function(e){
+        if(e.keyCode == button[1]) {
+            for(i=0; i<3; i++) {
+                verticesB[i][0] += 0.04;
+            }
+
+            gl.bufferSubData(gl.ARRAY_BUFFER, 0, flatten(verticesB));
+        }
+    });
+
+
+
+    window.addEventListener("keydown", function(e){
+        if(e.keyCode == button[2] && !hleyptAf){
             var hnitSpadi = verticesB[0][0];
             hleyptAf = true;
             verticesC = [
@@ -202,6 +231,7 @@ function ennALifiFugl1(){
             hleyptAf = false;
             fugl[0] = 0;
             skot =0;
+            killCounter ++;
     }
 }
 
@@ -214,6 +244,7 @@ function ennALifiFugl2(){
             hleyptAf = false;
             fugl[1] = 0;
             skot =0;
+            killCounter ++;
     }
 }
 
@@ -226,10 +257,46 @@ function ennALifiFugl3(){
             hleyptAf = false;
             fugl[2] = 0;
             skot = 0;
+            killCounter ++;
+    }
+}
+
+function reapear(){
+    if(fugl[0] == 0){
+        setTimeout(function(){
+            fugl[0] = 4;
+        }, 1000);
+    }
+
+    if(fugl[1] == 0){
+        setTimeout(function(){
+            fugl[1] = 4;
+        }, 1000);
+    }
+
+    if(fugl[1] == 0){
+        setTimeout(function(){
+            fugl[2] = 4;
+        }, 1000);
+    }
+
+
+}
+
+function updateDisplay(){
+    counterDisplayElem.innerHTML = killCounter;
+};
+
+function checkTime(){
+    var end = new Date().getTime();
+    var time = end - start;
+    if(time > 30000) {
+        alert('You killed: ' + killCounter + ' in 30 sec');
     }
 }
 
 function render() {
+
     gl.clear( gl.COLOR_BUFFER_BIT );
 
     var speed = vec3(0.01,0.008,0.006);
@@ -246,7 +313,15 @@ function render() {
     //Teikna Ã¾riÃ°ja fuglinn
     teiknaFugl(verticesA3,speed[2],fugl[2]);
 
+
     //Teikna skot og kanna hvort fuglinn sÃ© Ã¡ lÃ­fi.
-    teiknaSkot();
+    teiknaSkot(fugl);
+
+    // try to make the birds reaprear
+    reapear();
+
+    checkTime();
+
+    updateDisplay();
     window.requestAnimFrame(render);
 }
