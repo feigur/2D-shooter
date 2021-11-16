@@ -74,6 +74,7 @@ public class MainController {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser  != null) {
             model.addAttribute("LoggedInUser", sessionUser);
+            model.addAttribute("keys",sessionUser.getKeys());
             return "game";
         }
         return "redirect:/Main";

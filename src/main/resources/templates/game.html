@@ -2,10 +2,26 @@
 <html xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Game</title>
 </head>
 <h1> You have killed: </h1>
-<h1 class="counter-display">(..)</h1>
+<h1 class="counter-display">(0)</h1>
+<h1 id="gameover"></h1>
+
+<div id="divCheckbox" style="visibility: hidden; display:none;">
+    <p th:text="${keys[0]}" id="takkar0"></p>
+    <p th:text="${keys[1]}" id="takkar1"></p>
+    <p th:text="${keys[2]}" id="takkar2"></p>
+    <p th:text="${keys[3]}" id="takkar3"></p>
+    <p th:text="${keys[4]}" id="takkar4" ></p>
+</div>
+
+
+<form>
+    <input type="submit" value="Home"/>
+    <input type="submit" value="Restart"/>
+    <input id="upload" type="hidden" value="Upload" />
+</form>
 
 
 

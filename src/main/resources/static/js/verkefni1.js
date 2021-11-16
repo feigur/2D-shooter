@@ -9,11 +9,19 @@ var fuglErLifandi = true;
 var hleyptAf = false;
 var skot = 4;
 var killCounter = 0;
-const button = [37,39,32] // left right shoot
+var button = [37,39,32,0,32]; // left right shoot
 var start = new Date().getTime();
+var gameOver = 0; // 1 when over
+var t0 = document.getElementById("takkar0");
+var t1 = document.getElementById("takkar1");
+var t2 = document.getElementById("takkar2");
+var t3 = document.getElementById("takkar3");
+var t4 = document.getElementById("takkar4");
+
 
 
 let counterDisplayElem = document.querySelector('.counter-display');
+let uploadButton = document.getElementById("upload");
 
 
 
@@ -59,8 +67,14 @@ var verticesC = [
 ];
 
 window.onload = function init() {
+    button[0] = t0.textContent;
+    button[1] = t1.textContent;
+    button[2] = t2.textContent;
+    button[3] = t3.textContent;
+    button[4] = t4.textContent;
 
     canvas = document.getElementById( "gl-canvas" );
+
 
     gl = WebGLUtils.setupWebGL( canvas );
     if ( !gl ) { alert( "WebGL isn't available" ); }
@@ -120,19 +134,19 @@ window.onload = function init() {
     });
 
     window.addEventListener("keydown", function(e){
-        if(e.keyCode == button[0]) {
-            for(i=0; i<3; i++) {
-                verticesB[i][0] -= 0.04;
-            }
-
-            gl.bufferSubData(gl.ARRAY_BUFFER, 0, flatten(verticesB));
-        }
-    });
-
-    window.addEventListener("keydown", function(e){
         if(e.keyCode == button[1]) {
             for(i=0; i<3; i++) {
-                verticesB[i][0] += 0.04;
+                verticesB[i][0] -= 0.08;
+            }
+
+            gl.bufferSubData(gl.ARRAY_BUFFER, 0, flatten(verticesB));
+        }
+    });
+
+    window.addEventListener("keydown", function(e){
+        if(e.keyCode == button[2]) {
+            for(i=0; i<3; i++) {
+                verticesB[i][0] += 0.08;
             }
 
             gl.bufferSubData(gl.ARRAY_BUFFER, 0, flatten(verticesB));
@@ -142,7 +156,7 @@ window.onload = function init() {
 
 
     window.addEventListener("keydown", function(e){
-        if(e.keyCode == button[2] && !hleyptAf){
+        if(e.keyCode == button[4] && !hleyptAf){
             var hnitSpadi = verticesB[0][0];
             hleyptAf = true;
             verticesC = [
@@ -151,7 +165,6 @@ window.onload = function init() {
                 vec2( -(0.005-hnitSpadi), -0.78 ),
                 vec2( -(0.005-hnitSpadi), -0.8 )
             ];
-
         }
     });
 
@@ -262,19 +275,19 @@ function ennALifiFugl3(){
 }
 
 function reapear(){
-    if(fugl[0] == 0){
+    if((fugl[0] == 0) && (gameOver != 1)){
         setTimeout(function(){
             fugl[0] = 4;
         }, 1000);
     }
 
-    if(fugl[1] == 0){
+    if((fugl[1] == 0) && (gameOver != 1)){
         setTimeout(function(){
             fugl[1] = 4;
         }, 1000);
     }
 
-    if(fugl[1] == 0){
+    if((fugl[2] == 0) && (gameOver != 1)){
         setTimeout(function(){
             fugl[2] = 4;
         }, 1000);
@@ -291,7 +304,12 @@ function checkTime(){
     var end = new Date().getTime();
     var time = end - start;
     if(time > 30000) {
-        alert('You killed: ' + killCounter + ' in 30 sec');
+        fugl[0] = 0;
+        fugl[1] = 0;
+        fugl[2] = 0;
+        gameOver = 1;
+        uploadButton.type = "submit";
+        document.getElementById("gameover").innerHTML = "Game finish, do you want to upload result?";
     }
 }
 
