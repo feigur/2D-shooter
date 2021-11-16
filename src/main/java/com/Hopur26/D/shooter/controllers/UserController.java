@@ -65,6 +65,19 @@ public class UserController {
         return "redirect:/main";
     }
 
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    public String uploadPOST(@RequestParam(value="score") String score, User user, Model model, BindingResult result, HttpSession session){
+        if(result.hasErrors()){
+            //return "redirect:/updateUser";
+        }
+        System.out.println(score);
+        //userService.addGame(user,score);
+        //userService.setName(user,test);
+        //userService.save(user);
+        //return "redirect:/";
+        return "redirect:/game";
+    }
+
 
 
 }

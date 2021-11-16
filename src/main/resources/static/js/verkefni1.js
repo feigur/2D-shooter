@@ -25,6 +25,7 @@ let uploadButton = document.getElementById("upload");
 
 
 
+
 var mouseX;             // Old value of x-coordinate
 var movement = false;   // Do we move the paddle?
 
@@ -298,6 +299,7 @@ function reapear(){
 
 function updateDisplay(){
     counterDisplayElem.innerHTML = killCounter;
+    document.getElementById("score").value = killCounter;
 };
 
 function checkTime(){

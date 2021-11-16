@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Game</title>
 </head>
-<h1> You have killed: </h1>
-<h1 class="counter-display">(0)</h1>
+<h1 id="gameover">You have killed: </h1>
+<h1 class="counter-display">0</h1>
 <h1 id="gameover"></h1>
 
 <div id="divCheckbox" style="visibility: hidden; display:none;">
@@ -16,14 +16,16 @@
     <p th:text="${keys[4]}" id="takkar4" ></p>
 </div>
 
-
-<form>
-    <input type="submit" value="Home"/>
-    <input type="submit" value="Restart"/>
-    <input id="upload" type="hidden" value="Upload" />
+<form action="#" th:action="@{/upload}" th:object="${Last5Games}" method="post">
+    <input type="hidden" id="upload" value="Upload">
+    <input type="hidden" class="counter-display" name="score" id="score" th:value="0"/>
 </form>
-
-
+<form action="#" th:action="@{/main}" method="get">
+    <input type="submit" value="Home"/>
+</form>
+<form action="#" th:action="@{/game}" method="get">
+    <input type="submit" value="Restart"/>
+</form>
 
 <script id="vertex-shader" type="x-shader/x-vertex">
 

@@ -1,6 +1,7 @@
 package com.Hopur26.D.shooter.controllers;
 
 import com.Hopur26.D.shooter.Persistance.MainService;
+import com.Hopur26.D.shooter.Persistance.UserService;
 import com.Hopur26.D.shooter.storage.Entities.KeyBinds;
 import com.Hopur26.D.shooter.storage.Entities.Last5Games;
 import com.Hopur26.D.shooter.storage.Entities.User;
@@ -8,8 +9,10 @@ import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 
@@ -79,8 +82,6 @@ public class MainController {
         }
         return "redirect:/Main";
     }
-
-
 
 
 }
