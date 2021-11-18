@@ -1,7 +1,6 @@
-package com.Hopur26.D.shooter.storage.Repository;
+package com.Hopur26.D.shooter.Persistence.Repository;
 
-import com.Hopur26.D.shooter.storage.Entities.Last5Games;
-import com.Hopur26.D.shooter.storage.Entities.User;
+import com.Hopur26.D.shooter.Persistence.Entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

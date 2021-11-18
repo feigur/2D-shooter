@@ -1,8 +1,8 @@
-package com.Hopur26.D.shooter.Persistance;
+package com.Hopur26.D.shooter.Services;
 
-import com.Hopur26.D.shooter.storage.Entities.KeyBinds;
-import com.Hopur26.D.shooter.storage.Entities.Last5Games;
-import com.Hopur26.D.shooter.storage.Entities.User;
+import com.Hopur26.D.shooter.Persistence.Entities.KeyBinds;
+import com.Hopur26.D.shooter.Persistence.Entities.Last5Games;
+import com.Hopur26.D.shooter.Persistence.Entities.User;
 
 import java.util.ArrayList;
 

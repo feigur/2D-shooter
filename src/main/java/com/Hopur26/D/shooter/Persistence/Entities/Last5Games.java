@@ -1,9 +1,6 @@
-package com.Hopur26.D.shooter.storage.Entities;
+package com.Hopur26.D.shooter.Persistence.Entities;
 
 import javax.persistence.Embeddable;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.ArrayList;
 
 @Embeddable

@@ -1,8 +1,7 @@
-package com.Hopur26.D.shooter.storage.Entities;
+package com.Hopur26.D.shooter.Persistence.Entities;
 
 import javax.persistence.Embeddable;
 import java.util.ArrayList;
-
 @Embeddable
 public class KeyBinds {
     private ArrayList<Integer> myKeys;
@@ -30,3 +29,4 @@ public class KeyBinds {
     }
     
 }
+

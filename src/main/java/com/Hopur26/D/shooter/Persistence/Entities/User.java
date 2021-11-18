@@ -1,4 +1,4 @@
-package com.Hopur26.D.shooter.storage.Entities;
+package com.Hopur26.D.shooter.Persistence.Entities;
 
 import org.json.JSONArray;
 

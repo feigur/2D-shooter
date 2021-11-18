@@ -1,12 +1,12 @@
-package com.Hopur26.D.shooter.Persistance.Implementation;
+package com.Hopur26.D.shooter.Services.Implementation;
 
-import com.Hopur26.D.shooter.storage.Entities.KeyBinds;
-import com.Hopur26.D.shooter.storage.Entities.Last5Games;
-import com.Hopur26.D.shooter.storage.Entities.User;
+import com.Hopur26.D.shooter.Persistence.Entities.KeyBinds;
+import com.Hopur26.D.shooter.Persistence.Entities.Last5Games;
+import com.Hopur26.D.shooter.Persistence.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.Hopur26.D.shooter.Persistance.UserService;
-import com.Hopur26.D.shooter.storage.Repository.UserRepository;
+import com.Hopur26.D.shooter.Services.UserService;
+import com.Hopur26.D.shooter.Persistence.Repository.UserRepository;
 
 import java.util.ArrayList;
 

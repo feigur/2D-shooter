@@ -1,22 +1,20 @@
 package com.Hopur26.D.shooter.controllers;
 
 
-import com.Hopur26.D.shooter.storage.Entities.KeyBinds;
-import com.Hopur26.D.shooter.storage.Entities.Last5Games;
-import com.Hopur26.D.shooter.storage.Entities.User;
+import com.Hopur26.D.shooter.Persistence.Entities.KeyBinds;
+import com.Hopur26.D.shooter.Persistence.Entities.Last5Games;
+import com.Hopur26.D.shooter.Persistence.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.Hopur26.D.shooter.Persistance.UserService;
+import com.Hopur26.D.shooter.Services.UserService;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
 
 @Controller
 public class UserController {
@@ -62,15 +60,22 @@ public class UserController {
         System.out.println(test);
         //userService.setName(user,test);
         userService.save(user);
+
+         */
         return "redirect:/main";
     }
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String uploadPOST(@RequestParam(value="score") String score, User user, Model model, BindingResult result, HttpSession session){
+        user = (User) session.getAttribute("LoggedInUser");
         if(result.hasErrors()){
             //return "redirect:/updateUser";
         }
+        userService.addGame(user,score);
         System.out.println(score);
+        System.out.println(user.getLast5Games());
+        userService.save(user);
+        session.setAttribute("LoggedInUser",user);
         //userService.addGame(user,score);
         //userService.setName(user,test);
         //userService.save(user);
