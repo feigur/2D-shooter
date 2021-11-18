@@ -53,9 +53,14 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public void setKeys(User user,ArrayList<Integer> newKeys){
-        user.setKeys(newKeys);
-
+    public void setKeys(User user, int jump, int left, int right, int down, int shoot){
+        ArrayList<Integer> newKeyBinds = new ArrayList<Integer>();
+        newKeyBinds.add(jump);
+        newKeyBinds.add(left);
+        newKeyBinds.add(right);
+        newKeyBinds.add(down);
+        newKeyBinds.add(shoot);
+        user.setKeys(newKeyBinds);
     }
 
     public void setName(User user, String name){

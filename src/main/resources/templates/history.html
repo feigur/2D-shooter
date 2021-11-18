@@ -8,7 +8,7 @@
         </style>
         <script>
             //Get last5Games to work, says it is undefined
-            var last5Games = [[${lastGames}]];
+            var last5Games = [[${last5Games}]];
 
             function updateLists() {
                 for(let i = 0; i<last5Games.length;i++) {
@@ -20,9 +20,20 @@
         </script>
     </head>
     <body>
-        <h1>Your last scores!</h1>
+    <div id="divCheckbox">
+        <p th:text="${last5Games[0]}" id="takkar0"></p>
+        <p th:text="${last5Games[1]}" id="takkar1"></p>
+        <p th:text="${last5Games[2]}" id="takkar2"></p>
+        <p th:text="${last5Games[3]}" id="takkar3"></p>
+        <p th:text="${last5Games[4]}" id="takkar4" ></p>
+    </div>
+    <form action="#" th:action="@{/main}" method="get">
+        <input type="submit" value="Home"/>
+    </form>
+    <!-- -->
+        <!-- <h1>Your last scores!</h1>
         <ul id="gameList">
         </ul>
-        <script>updateLists();</script>
+        <script>updateLists();</script> -->
     </body>
 </html>

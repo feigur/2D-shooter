@@ -16,6 +16,6 @@ public interface UserService {
 
     ArrayList<String> getLast5Games(User user);
     ArrayList<Integer> getKeys(User user);
-    void setKeys(User user,ArrayList<Integer> newKeys);
+    void setKeys(User user, int jump, int left, int right, int down, int shoot);
     void addGame(User user, String lastGame);
 }

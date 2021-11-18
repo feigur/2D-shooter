@@ -100,8 +100,8 @@ public class User {
         this.last5Games = last5Games;
     }
 
-    public void setKeys(ArrayList<Integer> keyBinds){
-        this.keyBinds.setKeys(keyBinds);
+    public void setKeys(ArrayList<Integer> newKeyBinds){
+        this.keyBinds.setKeys(newKeyBinds);
     }
 
     public void addGame(String lastGame){

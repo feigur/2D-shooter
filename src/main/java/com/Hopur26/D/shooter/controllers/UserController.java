@@ -53,7 +53,19 @@ public class UserController {
     }
 
     @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
-    public String updateUserPOST(@RequestParam(value="myArray[]") Integer[] test, User user, Model model, BindingResult result, HttpSession session){
+    public String updateUserPOST(@RequestParam(value="newName") String newName,
+                                 @RequestParam(value="b0") int b0,
+                                 @RequestParam(value="b1") int b1,
+                                 @RequestParam(value="b2") int b2,
+                                 @RequestParam(value="b3") int b3,
+                                 @RequestParam(value="b4") int b4,
+                                 User user, Model model, BindingResult result, HttpSession session){
+        user = (User) session.getAttribute("LoggedInUser");
+        userService.setKeys(user, b0, b1, b2, b3, b4);
+        userService.setName(user,newName);
+        userService.save(user);
+        session.setAttribute("LoggedInUser",user);
+        /*user = (User) session.getAttribute("LoggedInUser");
         if(result.hasErrors()){
             return "redirect:/updateUser";
         }
