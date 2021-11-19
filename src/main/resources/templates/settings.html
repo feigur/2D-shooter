@@ -4,9 +4,116 @@
         <meta charset="UTF-8">
         <title>Settings</title>
         <style>
-            body    {background-color: powderblue;}
-            button  {width:50%; margin-left:25%; margin-right:25%; padding: 15px 32px; text-align: center; font-size: 16px;}
-            h3      {width:50%; margin-left:25%; margin-right:25%; text-align: center;}
+            html {
+                background-image: url(../images/grad_background.png);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+    
+            body {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                margin-bottom: 10%;
+                margin-top: 10%;
+            }
+    
+            img {
+                width:70%;
+                margin-left:15%;
+                margin-right:15%;
+                margin-bottom:25px;
+                margin-top:25px;
+            }
+    
+            button {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                margin-bottom:10px;
+                margin-top:10px;
+                padding: 15px 32px;
+                text-align: center;
+            }
+            input[type=submit] {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                margin-bottom:10px;
+                margin-top:10px;
+                padding: 15px 32px;
+                text-align: center;
+            }
+    
+            input[type=text] {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                margin-bottom:5px;
+                margin-top:5px;
+                font-family: Phantomsans, sans-serif;
+                font-size: 30px;
+                text-align: center;
+                border-style: solid;
+                border-color: #242525;
+                background-color: #bdbdbd;
+            }
+    
+            input[type=password] {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                margin-bottom:5px;
+                margin-top:5px;
+                font-family: Phantomsans, sans-serif;
+                font-size: 30px;
+                text-align: center;
+                border-style: solid;
+                border-color: #242525;
+                background-color: #bdbdbd;
+            }
+    
+            h2 {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                font-family: Phantomsans, sans-serif;
+                text-align: center;
+            }
+    
+            h3 {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                font-family: Phantomsans, sans-serif;
+                text-align: center;
+            }
+    
+            .button-p1 {
+                align-items: center;
+                background-image: linear-gradient(144deg,#272627, #3d3d3d 50%,#303636);
+                border-style: solid;
+                border-color: #242525;
+                border-radius: 8px;
+                box-sizing: border-box;
+                color: #FFFFFF;
+                display: flex;
+                font-family: Phantomsans, sans-serif;
+                font-size: 20px;
+                justify-content: center;
+                line-height: 1em;
+                max-width: 100%;
+                min-width: 140px;
+                padding: 3px;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                white-space: nowrap;
+                cursor: pointer;
+            }
+    
         </style>
         <script>
 
@@ -34,7 +141,6 @@
                     playerName = newName;
                     document.getElementById("newName").value = newName;
                     document.getElementById("username").innerHTML = newName;
-                    //debug.log(playerName);
                 }
             }
 
@@ -66,7 +172,6 @@
                             document.getElementById("b4").value = button_id;
                         }
                         initButtons();
-                        //debug.log(playerButtons);
                     }
                 }
             }
@@ -74,40 +179,40 @@
     </head>
     <body>
         <h3>Username:</h3>
-        <button type="button" id="username" onclick="updateUsername()">
+        <button type="button" id="username" onclick="updateUsername()" class="button-p1">
             <p th:text="${LoggedInUser.username}"></p>
         </button>
         <h3>Jump:</h3>
-        <button type="button" id="0" onclick="updateButtons(id)">
+        <button type="button" id="0" onclick="updateButtons(id)" class="button-p1">
             Button1
         </button>
         <h3>Move Left:</h3>
-        <button type="button" id="1" onclick="updateButtons(id)">
+        <button type="button" id="1" onclick="updateButtons(id)" class="button-p1">
             Button2
         </button>
         <h3>Move Right:</h3>
-        <button type="button" id="2" onclick="updateButtons(id)">
+        <button type="button" id="2" onclick="updateButtons(id)" class="button-p1">
             Button 3
         </button>
         <h3>Crouch:</h3>
-        <button type="button" id="3" onclick="updateButtons(id)">
+        <button type="button" id="3" onclick="updateButtons(id)" class="button-p1">
             Button 4
         </button>
         <h3>Shoot:</h3>
-        <button type="button" id="4" onclick="updateButtons(id)">
+        <button type="button" id="4" onclick="updateButtons(id)" class="button-p1">
             Button 5
         </button>
         <h3></h3>
 
 
         <form action="#" th:action="@{/updateUser}" th:object="${keys}" method="post">
-            <input type="submit" id="Submit" value="Submit">
+            <input type="submit" id="Submit" value="Submit" class="button-p1">
             <input type="hidden"  name="newName" id="newName" value="newName" th:value="${LoggedInUser.username}"/>
-            <input type="hidden"  name="b0" id="b0" value="b0" th:value="${keys[0]}"/>
-            <input type="hidden"  name="b1" id="b1" value="b1" th:value="${keys[1]}"/>
-            <input type="hidden"  name="b2" id="b2" value="b2" th:value="${keys[2]}"/>
-            <input type="hidden"  name="b3" id="b3" value="b3" th:value="${keys[3]}"/>
-            <input type="hidden"  name="b4" id="b4" value="b4" th:value="${keys[4]}"/>
+            <input type="hidden"  name="b0" id="b0" value="b0" th:value="${keys[0]}" class="button-p1"/>
+            <input type="hidden"  name="b1" id="b1" value="b1" th:value="${keys[1]}" class="button-p1"/>
+            <input type="hidden"  name="b2" id="b2" value="b2" th:value="${keys[2]}" class="button-p1"/>
+            <input type="hidden"  name="b3" id="b3" value="b3" th:value="${keys[3]}" class="button-p1"/>
+            <input type="hidden"  name="b4" id="b4" value="b4" th:value="${keys[4]}" class="button-p1"/>
         </form>
         <script> initButtons(); </script>
     </body>

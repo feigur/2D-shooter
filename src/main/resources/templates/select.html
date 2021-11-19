@@ -10,7 +10,7 @@
                 background-attachment: fixed;
                 background-size: cover;
             }
-
+    
             body {
                 width:50%;
                 margin-left:25%;
@@ -18,7 +18,7 @@
                 margin-bottom: 10%;
                 margin-top: 10%;
             }
-
+    
             img {
                 width:70%;
                 margin-left:15%;
@@ -26,7 +26,7 @@
                 margin-bottom:25px;
                 margin-top:25px;
             }
-
+    
             input[type=submit] {
                 width:50%;
                 margin-left:25%;
@@ -36,7 +36,35 @@
                 padding: 15px 32px;
                 text-align: center;
             }
-
+    
+            input[type=text] {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                margin-bottom:5px;
+                margin-top:5px;
+                font-family: Phantomsans, sans-serif;
+                font-size: 30px;
+                text-align: center;
+                border-style: solid;
+                border-color: #242525;
+                background-color: #bdbdbd;
+            }
+    
+            input[type=password] {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                margin-bottom:5px;
+                margin-top:5px;
+                font-family: Phantomsans, sans-serif;
+                font-size: 30px;
+                text-align: center;
+                border-style: solid;
+                border-color: #242525;
+                background-color: #bdbdbd;
+            }
+    
             h2 {
                 width:50%;
                 margin-left:25%;
@@ -44,7 +72,15 @@
                 font-family: Phantomsans, sans-serif;
                 text-align: center;
             }
-
+    
+            h3 {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                font-family: Phantomsans, sans-serif;
+                text-align: center;
+            }
+    
             .button-p1 {
                 align-items: center;
                 background-image: linear-gradient(144deg,#272627, #3d3d3d 50%,#303636);
@@ -68,11 +104,11 @@
                 white-space: nowrap;
                 cursor: pointer;
             }
-
-        </style>       
+    
+        </style>      
     </head>
     <body>
-        <img src="../images/logo4.png" alt="HYPERNOVA BIRD KILLER">
+        <img src="../images/logo1.png" alt="HYPERNOVA BIRD KILLER">
         <h2>Login to your user or create a new user</h2>
         <form action="#" th:action="@{/login}" method="get">
             <input type="submit" value="Login" class="button-p1"/>
