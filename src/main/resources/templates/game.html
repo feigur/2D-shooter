@@ -3,9 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <title>Game</title>
+    <style>
+        html {
+            background-image: url(../images/grad_background.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .body-game {
+            width:50%;
+            margin-left:25%;
+            margin-right:25%;
+        }
+
+        img {
+            width:70%;
+            margin-left:15%;
+            margin-right:15%;
+            margin-bottom:25px;
+            margin-top:25px;
+        }
+
+        button {
+            width:50%;
+            margin-left:25%;
+            margin-right:25%;
+            margin-bottom:10px;
+            margin-top:10px;
+            padding: 15px 32px;
+            text-align: center;
+        }
+        input[type=submit] {
+            width:50%;
+            margin-left:25%;
+            margin-right:25%;
+            margin-bottom:10px;
+            margin-top:10px;
+            padding: 15px 32px;
+            text-align: center;
+        }
+
+        input[type=text] {
+            width:50%;
+            margin-left:25%;
+            margin-right:25%;
+            margin-bottom:5px;
+            margin-top:5px;
+            font-family: Phantomsans, sans-serif;
+            font-size: 30px;
+            text-align: center;
+            border-style: solid;
+            border-color: #242525;
+            background-color: #bdbdbd;
+        }
+
+        input[type=password] {
+            width:50%;
+            margin-left:25%;
+            margin-right:25%;
+            margin-bottom:5px;
+            margin-top:5px;
+            font-family: Phantomsans, sans-serif;
+            font-size: 30px;
+            text-align: center;
+            border-style: solid;
+            border-color: #242525;
+            background-color: #bdbdbd;
+        }
+
+        h1,h2,h3 {
+            width:50%;
+            margin-left:25%;
+            margin-right:25%;
+            font-family: Phantomsans, sans-serif;
+            text-align: center;
+            color: #bdbdbd;
+        }
+
+        .button-p1 {
+            align-items: center;
+            background-image: linear-gradient(144deg,#272627, #3d3d3d 50%,#303636);
+            border-style: solid;
+            border-color: #242525;
+            border-radius: 8px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            display: flex;
+            font-family: Phantomsans, sans-serif;
+            font-size: 20px;
+            justify-content: center;
+            line-height: 1em;
+            max-width: 100%;
+            min-width: 140px;
+            padding: 3px;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .button-p2 {
+            align-items: center;
+            background-image: linear-gradient(144deg,#d81121, #9e0606 50%,#580406);
+            border-style: solid;
+            border-color: #242525;
+            border-radius: 8px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            display: flex;
+            font-family: Phantomsans, sans-serif;
+            font-size: 20px;
+            justify-content: center;
+            line-height: 1em;
+            max-width: 100%;
+            min-width: 140px;
+            padding: 3px;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .btn_form {
+            width: 200px;
+            margin: 0 auto;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .operator-buttons-game {
+            width:80%;
+            margin-left:10%;
+            margin-right:10%;
+        }
+
+        .oppp {
+            width: 200px;
+            margin: 0 auto;
+            display: inline-block;
+        }
+
+        .opppp {
+            width:70%;
+            margin-left:15%;
+            margin-right:15%;
+        }
+
+    </style>
 </head>
-<h1 id="gameover">You have killed: </h1>
-<h1 class="counter-display">0</h1>
+
+<h1 id="gameover" class="btn_form opppp"></h1>
+<div class="operator-buttons-game">
+    <h1 class="btn_form">You have killed: </h1>
+    <h1 class="counter-display btn_form">0</h1>
+</div>
 
 <div id="divCheckbox" style="visibility: hidden; display:none;">
     <p th:text="${keys[0]}" id="takkar0"></p>
@@ -15,16 +171,18 @@
     <p th:text="${keys[4]}" id="takkar4" ></p>
 </div>
 
-<form action="#" th:action="@{/upload}" th:object="${Last5Games}" method="post">
-    <input type="hidden" id="upload" value="Upload">
-    <input type="hidden" class="counter-display" name="score" id="score" th:value="0"/>
-</form>
-<form action="#" th:action="@{/main}" method="get">
-    <input type="submit" value="Home"/>
-</form>
-<form action="#" th:action="@{/game}" method="get">
-    <input type="submit" value="Restart"/>
-</form>
+<div class="opppp">
+    <form action="#" th:action="@{/main}" method="get" class="oppp">
+        <input type="submit" value="Home" class="button-p1"/>
+    </form>
+    <form action="#" th:action="@{/game}" method="get" class="oppp">
+        <input type="submit" value="Restart" class="button-p1"/>
+    </form>
+    <form action="#" th:action="@{/upload}" th:object="${Last5Games}" method="post" class="oppp">
+        <input type="hidden" id="upload" value="Upload" class="button-p2">
+        <input type="hidden" class="counter-display" name="score" id="score" th:value="0"/>
+    </form>
+</div>
 
 <script id="vertex-shader" type="x-shader/x-vertex">
 
@@ -59,10 +217,11 @@ main()
 <script type="text/javascript" src="/js/verkefni1.js"></script>
 
 
-<body>
+<body class="body-game">
 
-<canvas id="gl-canvas" width="1000" height="600">>
-    Oops ... your browser doesn't support the HTML5 canvas element
-</canvas>
+    <canvas id="gl-canvas" width="1000" height="600">>
+        Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+
 </body>
 </html>

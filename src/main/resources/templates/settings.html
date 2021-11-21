@@ -36,6 +36,7 @@
                 padding: 15px 32px;
                 text-align: center;
             }
+            
             input[type=submit] {
                 width:50%;
                 margin-left:25%;
@@ -74,20 +75,13 @@
                 background-color: #bdbdbd;
             }
     
-            h2 {
+            h1,h2,h3 {
                 width:50%;
                 margin-left:25%;
                 margin-right:25%;
                 font-family: Phantomsans, sans-serif;
                 text-align: center;
-            }
-    
-            h3 {
-                width:50%;
-                margin-left:25%;
-                margin-right:25%;
-                font-family: Phantomsans, sans-serif;
-                text-align: center;
+                color: #bdbdbd;
             }
     
             .button-p1 {
@@ -112,6 +106,18 @@
                 touch-action: manipulation;
                 white-space: nowrap;
                 cursor: pointer;
+            }
+
+            .btn_form {
+                width: 200px;
+                margin: 0 auto;
+                display: inline-block;
+            }
+
+            .operator-buttons {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
             }
     
         </style>
@@ -178,6 +184,7 @@
         </script>
     </head>
     <body>
+        <h1>Settings</h1>
         <h3>Username:</h3>
         <button type="button" id="username" onclick="updateUsername()" class="button-p1">
             <p th:text="${LoggedInUser.username}"></p>
@@ -204,16 +211,20 @@
         </button>
         <h3></h3>
 
-
-        <form action="#" th:action="@{/updateUser}" th:object="${keys}" method="post">
-            <input type="submit" id="Submit" value="Submit" class="button-p1">
-            <input type="hidden"  name="newName" id="newName" value="newName" th:value="${LoggedInUser.username}"/>
-            <input type="hidden"  name="b0" id="b0" value="b0" th:value="${keys[0]}" class="button-p1"/>
-            <input type="hidden"  name="b1" id="b1" value="b1" th:value="${keys[1]}" class="button-p1"/>
-            <input type="hidden"  name="b2" id="b2" value="b2" th:value="${keys[2]}" class="button-p1"/>
-            <input type="hidden"  name="b3" id="b3" value="b3" th:value="${keys[3]}" class="button-p1"/>
-            <input type="hidden"  name="b4" id="b4" value="b4" th:value="${keys[4]}" class="button-p1"/>
-        </form>
+        <div class="operator-buttons">
+            <form action="#" th:action="@{/updateUser}" th:object="${keys}" method="post" class="btn_form">
+                <input type="submit" id="Submit" value="Submit" class="button-p1">
+                <input type="hidden"  name="newName" id="newName" value="newName" th:value="${LoggedInUser.username}"/>
+                <input type="hidden"  name="b0" id="b0" value="b0" th:value="${keys[0]}"/>
+                <input type="hidden"  name="b1" id="b1" value="b1" th:value="${keys[1]}"/>
+                <input type="hidden"  name="b2" id="b2" value="b2" th:value="${keys[2]}"/>
+                <input type="hidden"  name="b3" id="b3" value="b3" th:value="${keys[3]}"/>
+                <input type="hidden"  name="b4" id="b4" value="b4" th:value="${keys[4]}"/>
+            </form>
+            <form action="#" th:action="@{/main}" method="get" class="btn_form">
+                <input type="submit" value="Home" class="button-p1"/>
+            </form>
+        </div>
         <script> initButtons(); </script>
     </body>
 </html>
