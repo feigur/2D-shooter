@@ -11,7 +11,7 @@ public class Last5Games {
     public Last5Games(){
         this.last5Games = new ArrayList<String>(5);
         for (int i = 0; i < 5; i++) {
-            last5Games.add("x-x");
+            last5Games.add("N/A");
         }
     }
 

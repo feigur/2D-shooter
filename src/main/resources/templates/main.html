@@ -104,10 +104,28 @@
                 white-space: nowrap;
                 cursor: pointer;
             }
+
+            .displayName {
+                width:70px;
+                margin: 0 auto;
+                padding-bottom: 20px;
+                display: inline-block;
+                color: #bdbdbd;
+            }
+
+            .operator-buttons-Name {
+                width:30%;
+                margin-left:60%;
+                margin-right:10%;
+            }
     
         </style>
     </head>
     <body>
+        <div class="operator-buttons-Name">
+            <h2 class="displayName">Hello, </h2>
+            <h2 th:text="${LoggedInUser.username}" class="displayName"></h2>
+        </div>
         <img src="../images/logo1.png" alt="HYPERNOVA BIRD KILLER">
         <form action="#" th:action="@{/game}" method="get">
             <input type="submit" value="New Game" class="button-p1"/>
@@ -118,6 +136,5 @@
         <form action="#" th:action="@{/history}" method="get">
             <input type="submit" value="History" class="button-p1"/>
         </form>
-        <p th:text="${LoggedInUser.username}"></p>
     </body>
 </html>

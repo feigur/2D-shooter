@@ -110,6 +110,19 @@
             .score {
                 color: #bdbdbd;
             }
+
+            .btn_form {
+                width: 150px;
+                margin: 0 auto;
+                display: inline-block;
+                color: #bdbdbd;
+            }
+
+            .operator-buttons {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+            }
     
         </style>
         <script>
@@ -128,11 +141,31 @@
     <body>
         <h1>History</h1>
         <div id="divCheckbox">
-            <h3 th:text="${last5Games[0]}" id="takkar0" class="score"></h3>
-            <h3 th:text="${last5Games[1]}" id="takkar1" class="score"></h3>
-            <h3 th:text="${last5Games[2]}" id="takkar2" class="score"></h3>
-            <h3 th:text="${last5Games[3]}" id="takkar3" class="score"></h3>
-            <h3 th:text="${last5Games[4]}" id="takkar4" class="score"></h3>
+            <div class="operator-buttons">
+                <h2 class="btn_form" style="white-space: nowrap;">Last game: </h2>
+                <h2 th:text="${last5Games[0]}" id="takkar0" class="btn_form" style="text-align:right;"></h2>
+                <h2 class="btn_form">points</h2>
+            </div>
+            <div class="operator-buttons">
+                <h2 class="btn_form" style="white-space: nowrap;">2 games ago: </h2>
+                <h2 th:text="${last5Games[1]}" id="takkar1" class="btn_form" style="text-align:right;"></h2>
+                <h2 class="btn_form">points</h2>
+            </div>
+            <div class="operator-buttons">
+                <h2 class="btn_form" style="white-space: nowrap;">3 games ago: </h2>
+                <h2 th:text="${last5Games[2]}" id="takkar2" class="btn_form" style="text-align:right;"></h2>
+                <h2 class="btn_form">points</h2>
+            </div>
+            <div class="operator-buttons">
+                <h2 class="btn_form" style="white-space: nowrap;">4 games ago: </h2>
+                <h2 th:text="${last5Games[3]}" id="takkar3" class="btn_form" style="text-align:right;"></h2>
+                <h2 class="btn_form">points</h2>
+            </div>
+            <div class="operator-buttons">
+                <h2 class="btn_form" style="white-space: nowrap;">5 games ago: </h2>
+                <h2 th:text="${last5Games[4]}" id="takkar4" class="btn_form" style="text-align:right;"></h2>
+                <h2 class="btn_form">points</h2>
+            </div>
         </div>
         <form action="#" th:action="@{/main}" method="get">
             <input type="submit" value="Home" class="button-p1"/>

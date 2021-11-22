@@ -311,7 +311,7 @@ function checkTime(){
         fugl[2] = 0;
         gameOver = 1;
         uploadButton.type = "submit";
-        document.getElementById("gameover").innerHTML = "Game finish, do you want to upload result?";
+        document.getElementById("gameover").innerHTML = "Game finished, do you want to upload the results?";
     }
 }
 
