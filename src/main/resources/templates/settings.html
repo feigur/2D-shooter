@@ -121,9 +121,14 @@
             }
     
         </style>
-        <script>
+        <script th:inline="javascript">
+            var playerName = [[${LoggedInUser.username}]];
+            var playerButtons = [[${keys}]];
+        </script>
+        <script type="text/javascript" th:src="@{js/settings.js}"></script>
+        <!--<script>
 
-            var playerName = "[[${LoggedInUser.username}]]";
+            var playerName = [[${LoggedInUser.username}]];
             var playerButtons = [[${keys}]];
 
             function initButtons() {
@@ -181,7 +186,7 @@
                     }
                 }
             }
-        </script>
+        </script>-->
     </head>
     <body>
         <h1>Settings</h1>
