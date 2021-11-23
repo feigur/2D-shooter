@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>History</title>
-        <style>
+        <!-- <style>
             html {
                 background-image: url(../images/grad_background.png);
                 background-repeat: no-repeat;
@@ -124,9 +124,8 @@
                 margin-right:25%;
             }
     
-        </style>
-
-
+        </style> -->
+        <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
         <script th:inline="javascript">
             var last5Games = [[${last5Games}]];
         </script>
@@ -145,33 +144,33 @@
             }
         </script>-->
     </head>
-    <body>
+    <body class="body_main">
         <h1>History</h1>
         <div id="divCheckbox">
             <div class="operator-buttons">
-                <h2 class="btn_form" style="white-space: nowrap;">Last game: </h2>
-                <h2 th:text="${last5Games[0]}" id="takkar0" class="btn_form" style="text-align:right;"></h2>
-                <h2 class="btn_form">points</h2>
+                <h2 class="btn_form-score" style="white-space: nowrap;">Last game: </h2>
+                <h2 th:text="${last5Games[0]}" id="takkar0" class="btn_form-score" style="text-align:right;"></h2>
+                <h2 class="btn_form-score">points</h2>
             </div>
             <div class="operator-buttons">
-                <h2 class="btn_form" style="white-space: nowrap;">2 games ago: </h2>
-                <h2 th:text="${last5Games[1]}" id="takkar1" class="btn_form" style="text-align:right;"></h2>
-                <h2 class="btn_form">points</h2>
+                <h2 class="btn_form-score" style="white-space: nowrap;">2 games ago: </h2>
+                <h2 th:text="${last5Games[1]}" id="takkar1" class="btn_form-score" style="text-align:right;"></h2>
+                <h2 class="btn_form-score">points</h2>
             </div>
             <div class="operator-buttons">
-                <h2 class="btn_form" style="white-space: nowrap;">3 games ago: </h2>
-                <h2 th:text="${last5Games[2]}" id="takkar2" class="btn_form" style="text-align:right;"></h2>
-                <h2 class="btn_form">points</h2>
+                <h2 class="btn_form-score" style="white-space: nowrap;">3 games ago: </h2>
+                <h2 th:text="${last5Games[2]}" id="takkar2" class="btn_form-score" style="text-align:right;"></h2>
+                <h2 class="btn_form-score">points</h2>
             </div>
             <div class="operator-buttons">
-                <h2 class="btn_form" style="white-space: nowrap;">4 games ago: </h2>
-                <h2 th:text="${last5Games[3]}" id="takkar3" class="btn_form" style="text-align:right;"></h2>
-                <h2 class="btn_form">points</h2>
+                <h2 class="btn_form-score" style="white-space: nowrap;">4 games ago: </h2>
+                <h2 th:text="${last5Games[3]}" id="takkar3" class="btn_form-score" style="text-align:right;"></h2>
+                <h2 class="btn_form-score">points</h2>
             </div>
             <div class="operator-buttons">
-                <h2 class="btn_form" style="white-space: nowrap;">5 games ago: </h2>
-                <h2 th:text="${last5Games[4]}" id="takkar4" class="btn_form" style="text-align:right;"></h2>
-                <h2 class="btn_form">points</h2>
+                <h2 class="btn_form-score" style="white-space: nowrap;">5 games ago: </h2>
+                <h2 th:text="${last5Games[4]}" id="takkar4" class="btn_form-score" style="text-align:right;"></h2>
+                <h2 class="btn_form-score">points</h2>
             </div>
         </div>
         <form action="#" th:action="@{/main}" method="get">

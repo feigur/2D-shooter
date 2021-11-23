@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <style>
+    <!-- <style>
         html {
             background-image: url(../images/grad_background.png);
             background-repeat: no-repeat;
@@ -105,9 +105,10 @@
             cursor: pointer;
         }
 
-    </style>
+    </style> -->
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
 </head>
-    <body>
+    <body class="body_main">
         <img src="../images/logo1.png" alt="HYPERNOVA BIRD KILLER">
         <h2>Login to your user</h2>
         <form action="#" th:action="@{/login}" th:object="${user}"  method="post">
