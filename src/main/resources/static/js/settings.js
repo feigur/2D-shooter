@@ -53,9 +53,11 @@ function setButtons() {
     for (let i = 0; i < playerButtons.length; i++) {
         if (playerButtons[i] == 32){
             document.getElementById(i).innerHTML =  "Space";
+            document.getElementById('b' + i).value =  playerButtons[i];
         }
         else{
-            document.getElementById(i).innerHTML =  String.fromCharCode(playerButtons[i]);
+            document.getElementById( i).innerHTML =  String.fromCharCode(playerButtons[i]);
+            document.getElementById('b' + i).value =  playerButtons[i];
         }
 
     }
