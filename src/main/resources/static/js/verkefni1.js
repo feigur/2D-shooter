@@ -342,6 +342,16 @@ function render() {
 
     checkTime();
 
+    var now = new Date().getTime();
+    var time = (now - start)/1000;
+    var myTimer = Math.round(30 - time);
+
+
+    if(myTimer >= 0){
+        document.getElementById("timer").innerHTML = myTimer;
+    }
+
+
     updateDisplay();
     window.requestAnimFrame(render);
 }
