@@ -129,20 +129,7 @@
         <script th:inline="javascript">
             var last5Games = [[${last5Games}]];
         </script>
-
         <script type="text/javascript" th:src="@{js/history.js}"></script>
-        <!--<script>
-            //Get last5Games to work, says it is undefined
-            var last5Games = [[${last5Games}]];
-
-            function updateLists() {
-                for(let i = 0; i<last5Games.length;i++) {
-                    var y = document.createElement("LI");
-                    y.append(last5Games[i]);
-                    document.getElementById("gameList").append(y);
-                }
-            }
-        </script>-->
     </head>
     <body class="body_main">
         <h1>History</h1>
@@ -176,10 +163,5 @@
         <form action="#" th:action="@{/main}" method="get">
             <input type="submit" value="Home" class="button-p1"/>
         </form>
-        <!-- -->
-            <!-- <h1>Your last scores!</h1>
-            <ul id="gameList">
-            </ul>
-            <script>updateLists();</script> -->
     </body>
 </html>

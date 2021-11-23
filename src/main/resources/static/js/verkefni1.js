@@ -347,6 +347,10 @@ function render() {
     var myTimer = Math.round(30 - time);
 
 
+    if(myTimer <= 5){
+        document.getElementById("timer").style.color = "red";
+    }
+
     if(myTimer >= 0){
         document.getElementById("timer").innerHTML = myTimer;
     }

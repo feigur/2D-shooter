@@ -1,113 +1,113 @@
 <!DOCTYPE html>
 <html xmlns:th="https://thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <!-- <style>
-        html {
-            background-image: url(../images/grad_background.png);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-        }
-
-        body {
-            width:50%;
-            margin-left:25%;
-            margin-right:25%;
-            margin-bottom: 10%;
-            margin-top: 10%;
-        }
-
-        img {
-            width:70%;
-            margin-left:15%;
-            margin-right:15%;
-            margin-bottom:25px;
-            margin-top:25px;
-        }
-
-        input[type=submit] {
-            width:50%;
-            margin-left:25%;
-            margin-right:25%;
-            margin-bottom:10px;
-            margin-top:10px;
-            padding: 15px 32px;
-            text-align: center;
-        }
-
-        input[type=text] {
-            width:50%;
-            margin-left:25%;
-            margin-right:25%;
-            margin-bottom:5px;
-            margin-top:5px;
-            font-family: Phantomsans, sans-serif;
-            font-size: 30px;
-            text-align: center;
-            border-style: solid;
-            border-color: #242525;
-            background-color: #bdbdbd;
-        }
-
-        input[type=password] {
-            width:50%;
-            margin-left:25%;
-            margin-right:25%;
-            margin-bottom:5px;
-            margin-top:5px;
-            font-family: Phantomsans, sans-serif;
-            font-size: 30px;
-            text-align: center;
-            border-style: solid;
-            border-color: #242525;
-            background-color: #bdbdbd;
-        }
-
-        h2 {
-            width:50%;
-            margin-left:25%;
-            margin-right:25%;
-            font-family: Phantomsans, sans-serif;
-            text-align: center;
-        }
-
-        h3 {
-            width:50%;
-            margin-left:25%;
-            margin-right:25%;
-            font-family: Phantomsans, sans-serif;
-            text-align: center;
-        }
-
-        .button-p1 {
-            align-items: center;
-            background-image: linear-gradient(144deg,#272627, #3d3d3d 50%,#303636);
-            border-style: solid;
-            border-color: #242525;
-            border-radius: 8px;
-            box-sizing: border-box;
-            color: #FFFFFF;
-            display: flex;
-            font-family: Phantomsans, sans-serif;
-            font-size: 20px;
-            justify-content: center;
-            line-height: 1em;
-            max-width: 100%;
-            min-width: 140px;
-            padding: 3px;
-            text-decoration: none;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            white-space: nowrap;
-            cursor: pointer;
-        }
-
-    </style> -->
-    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <!-- <style>
+            html {
+                background-image: url(../images/grad_background.png);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        
+            body {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                margin-bottom: 10%;
+                margin-top: 10%;
+            }
+        
+            img {
+                width:70%;
+                margin-left:15%;
+                margin-right:15%;
+                margin-bottom:25px;
+                margin-top:25px;
+            }
+        
+            input[type=submit] {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                margin-bottom:10px;
+                margin-top:10px;
+                padding: 15px 32px;
+                text-align: center;
+            }
+        
+            input[type=text] {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                margin-bottom:5px;
+                margin-top:5px;
+                font-family: Phantomsans, sans-serif;
+                font-size: 30px;
+                text-align: center;
+                border-style: solid;
+                border-color: #242525;
+                background-color: #bdbdbd;
+            }
+        
+            input[type=password] {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                margin-bottom:5px;
+                margin-top:5px;
+                font-family: Phantomsans, sans-serif;
+                font-size: 30px;
+                text-align: center;
+                border-style: solid;
+                border-color: #242525;
+                background-color: #bdbdbd;
+            }
+        
+            h2 {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                font-family: Phantomsans, sans-serif;
+                text-align: center;
+            }
+        
+            h3 {
+                width:50%;
+                margin-left:25%;
+                margin-right:25%;
+                font-family: Phantomsans, sans-serif;
+                text-align: center;
+            }
+        
+            .button-p1 {
+                align-items: center;
+                background-image: linear-gradient(144deg,#272627, #3d3d3d 50%,#303636);
+                border-style: solid;
+                border-color: #242525;
+                border-radius: 8px;
+                box-sizing: border-box;
+                color: #FFFFFF;
+                display: flex;
+                font-family: Phantomsans, sans-serif;
+                font-size: 20px;
+                justify-content: center;
+                line-height: 1em;
+                max-width: 100%;
+                min-width: 140px;
+                padding: 3px;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                white-space: nowrap;
+                cursor: pointer;
+            }
+        
+        </style> -->
+        <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    </head>
     <body class="body_main">
         <img src="../images/logo1.png" alt="HYPERNOVA BIRD KILLER">
         <h2>Login to your user</h2>
