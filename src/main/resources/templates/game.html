@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Game</title>
-    <style>
+    <!-- <style>
         html {
             background-image: url(../images/grad_background.png);
             background-repeat: no-repeat;
@@ -129,38 +129,39 @@
             cursor: pointer;
         }
 
-        .btn_form {
+        .text-game {
             width: 200px;
             margin: 0 auto;
             display: inline-block;
             white-space: nowrap;
         }
 
-        .operator-buttons-game {
+        .operator-text-game {
             width:80%;
             margin-left:10%;
             margin-right:10%;
         }
 
-        .oppp {
+        .btn_form-game {
             width: 200px;
             margin: 0 auto;
             display: inline-block;
         }
 
-        .opppp {
+        .operator-buttons-game {
             width:70%;
             margin-left:15%;
             margin-right:15%;
         }
 
-    </style>
+    </style> -->
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
 </head>
 
-<h1 id="gameover" class="btn_form opppp"></h1>
-<div class="operator-buttons-game">
-    <h1 class="btn_form">You have killed: </h1>
-    <h1 class="counter-display btn_form">0</h1>
+<h1 id="gameover" class="text-game operator-buttons-game"></h1>
+<div class="operator-text-game">
+    <h1 class="text-game">You have killed: </h1>
+    <h1 class="counter-display text-game">0</h1>
 </div>
 
 <div id="divCheckbox" style="visibility: hidden; display:none;">
@@ -171,14 +172,14 @@
     <p th:text="${keys[4]}" id="takkar4" ></p>
 </div>
 
-<div class="opppp">
-    <form action="#" th:action="@{/main}" method="get" class="oppp">
+<div class="operator-buttons-game">
+    <form action="#" th:action="@{/main}" method="get" class="btn_form-game">
         <input type="submit" value="Home" class="button-p1"/>
     </form>
-    <form action="#" th:action="@{/game}" method="get" class="oppp">
+    <form action="#" th:action="@{/game}" method="get" class="btn_form-game">
         <input type="submit" value="Restart" class="button-p1"/>
     </form>
-    <form action="#" th:action="@{/upload}" th:object="${Last5Games}" method="post" class="oppp">
+    <form action="#" th:action="@{/upload}" th:object="${Last5Games}" method="post" class="btn_form-game">
         <input type="hidden" id="upload" value="Upload" class="button-p2">
         <input type="hidden" class="counter-display" name="score" id="score" th:value="0"/>
     </form>
@@ -217,7 +218,7 @@ main()
 <script type="text/javascript" src="/js/verkefni1.js"></script>
 
 
-<body class="body-game">
+<body class="body_game">
 
     <canvas id="gl-canvas" width="1000" height="600">>
         Oops ... your browser doesn't support the HTML5 canvas element

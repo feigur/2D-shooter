@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Main Menu</title>
-        <style>
+        <!-- <style>
             html {
                 background-image: url(../images/grad_background.png);
                 background-repeat: no-repeat;
@@ -119,10 +119,11 @@
                 margin-right:10%;
             }
     
-        </style>
+        </style> -->
+        <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
     </head>
-    <body>
-        <div class="operator-buttons-Name">
+    <body class="body_main">
+        <div class="operator-buttons-name">
             <h2 class="displayName">Hello, </h2>
             <h2 th:text="${LoggedInUser.username}" class="displayName"></h2>
         </div>

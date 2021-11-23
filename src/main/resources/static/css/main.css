@@ -1,16 +1,8 @@
 html {
-    background-image: url(../../images/grad_background.png);
+    background-image: url(../images/grad_background.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-}
-
-body {
-    width:50%;
-    margin-left:25%;
-    margin-right:25%;
-    margin-bottom: 10%;
-    margin-top: 10%;
 }
 
 img {
@@ -21,7 +13,7 @@ img {
     margin-top:25px;
 }
 
-input[type=submit] {
+button, input[type=submit] {
     width:50%;
     margin-left:25%;
     margin-right:25%;
@@ -31,12 +23,41 @@ input[type=submit] {
     text-align: center;
 }
 
-h2 {
+input[type=text], input[type=password] {
+    width:50%;
+    margin-left:25%;
+    margin-right:25%;
+    margin-bottom:5px;
+    margin-top:5px;
+    font-family: Phantomsans, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    border-style: solid;
+    border-color: #242525;
+    background-color: #bdbdbd;
+}
+
+h1,h2,h3 {
     width:50%;
     margin-left:25%;
     margin-right:25%;
     font-family: Phantomsans, sans-serif;
     text-align: center;
+    color: #bdbdbd;
+}
+
+.body_main {
+    width:50%;
+    margin-left:25%;
+    margin-right:25%;
+    margin-bottom: 10%;
+    margin-top: 10%;
+}
+
+.body_game {
+    width:50%;
+    margin-left:25%;
+    margin-right:25%;
 }
 
 .button-p1 {
@@ -61,4 +82,86 @@ h2 {
     touch-action: manipulation;
     white-space: nowrap;
     cursor: pointer;
+}
+
+.button-p2 {
+    align-items: center;
+    background-image: linear-gradient(144deg,#d81121, #9e0606 50%,#580406);
+    border-style: solid;
+    border-color: #242525;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.btn_form {
+    width: 200px;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.operator-buttons {
+    width:50%;
+    margin-left:25%;
+    margin-right:25%;
+}
+
+.btn_form-score {
+    width: 150px;
+    margin: 0 auto;
+    display: inline-block;
+    color: #bdbdbd;
+}
+
+.displayName {
+    width:70px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    display: inline-block;
+    color: #bdbdbd;
+}
+
+.operator-buttons-name {
+    width:30%;
+    margin-left:60%;
+    margin-right:10%;
+}
+
+.text-game {
+    width: 200px;
+    margin: 0 auto;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.operator-text-game {
+    width:80%;
+    margin-left:10%;
+    margin-right:10%;
+}
+
+.btn_form-game {
+    width: 200px;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.operator-buttons-game {
+    width:70%;
+    margin-left:15%;
+    margin-right:15%;
 }
