@@ -111,6 +111,7 @@
     <body class="body_main">
         <img src="../images/logo1.png" alt="HYPERNOVA BIRD KILLER">
         <h2>Login to your user</h2>
+        <!-- Thymeleaf allows us to communicate with the controller, and here we reference the user class and input the name / pass for login -->
         <form action="#" th:action="@{/login}" th:object="${user}"  method="post">
             <h3>Username</h3>
             <input type="text" name="username" id="username" th:field="*{username}"/>

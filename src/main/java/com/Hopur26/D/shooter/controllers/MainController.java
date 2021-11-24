@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
+    // This controller is only used for get requests
     private MainService mainService;
 
     @Autowired
@@ -38,6 +39,7 @@ public class MainController {
     public String mainGet(HttpSession session, Model model){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser  != null){
+            //Here we set the user as a "global" variable for the session
             model.addAttribute("LoggedInUser", sessionUser);
             return "main";
         }
@@ -48,6 +50,7 @@ public class MainController {
     public String settingsGet(User user, HttpSession session, Model model){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser  != null){
+            // Here we add the username and keys to the html model
             model.addAttribute("LoggedInUser", sessionUser);
             model.addAttribute("keys",sessionUser.getKeys());
             return "settings";
@@ -59,6 +62,7 @@ public class MainController {
     public String historyGet(User user, HttpSession session, Model model){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser  != null){
+            // Here we add the username and keys to the html model
             model.addAttribute("LoggedInUser", sessionUser);
             model.addAttribute("last5Games",sessionUser.getLast5Games());
             return "history";
@@ -70,6 +74,7 @@ public class MainController {
     public String gameGet(User user, HttpSession session, Model model){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser  != null) {
+            // Here we add the username and keys to the html model
             model.addAttribute("LoggedInUser", sessionUser);
             model.addAttribute("keys",sessionUser.getKeys());
             return "game";

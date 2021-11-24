@@ -16,6 +16,7 @@ public class User {
     private String username;
     private String password;
 
+    // @Embedded allows us to have a single table for each stored object that contains the user object with other nested objects
     @Embedded
     @AttributeOverrides({
             @AttributeOverride( name = "last5Games", column = @Column(name = "last_5_games"))
@@ -70,23 +71,12 @@ public class User {
         this.password = password;
     }
 
-    public KeyBinds getKeyBinds(){
-        return this.keyBinds;
-    }
     public ArrayList<Integer> getKeys(){
         ArrayList<Integer> keys = this.keyBinds.getKeys();
         System.out.println(keys);
         return keys;
     }
 
-    public JSONArray getKeysJSON(){
-        JSONArray keyJSON = new JSONArray();
-        for(int i = 0; i < 5; i++){
-            keyJSON.put(this.keyBinds.getKeys().get(i));
-
-        }
-        return keyJSON;
-    }
 
     public ArrayList<String> getLast5Games(){
         return this.last5Games.getLast5Games();

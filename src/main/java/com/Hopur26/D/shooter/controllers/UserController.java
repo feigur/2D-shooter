@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 @Controller
 public class UserController {
+    // This controller is only for the user updates
     private UserService userService;
 
     @Autowired
@@ -30,6 +31,7 @@ public class UserController {
         if(result.hasErrors()){
             return "redirect:/login";
         }
+        // We send in the user and verify that the password is correct in the service, then we get the user back
         User exists = userService.login(user);
         if(exists != null){
             session.setAttribute("LoggedInUser", exists);
@@ -44,6 +46,7 @@ public class UserController {
         if(result.hasErrors()){
             return "redirect:/createAccount";
         }
+        // Here we check if the username exists, if not then the account gets created
         User exists = userService.findByUsername(user.getUsername());
         if(exists == null){
             userService.create(user,keyBinds,last5Games);
@@ -52,6 +55,7 @@ public class UserController {
         return "redirect:/createAccount";
     }
 
+    //The @RequestParam variables in the function call get variables from the HTML
     @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
     public String updateUserPOST(@RequestParam(value="newName") String newName,
                                  @RequestParam(value="b0") int b0,
@@ -65,15 +69,6 @@ public class UserController {
         userService.setName(user,newName);
         userService.save(user);
         session.setAttribute("LoggedInUser",user);
-        /*user = (User) session.getAttribute("LoggedInUser");
-        if(result.hasErrors()){
-            return "redirect:/updateUser";
-        }
-        System.out.println(test);
-        //userService.setName(user,test);
-        userService.save(user);
-
-         */
         return "redirect:/main";
     }
 
@@ -81,20 +76,13 @@ public class UserController {
     public String uploadPOST(@RequestParam(value="score") String score, User user, Model model, BindingResult result, HttpSession session){
         user = (User) session.getAttribute("LoggedInUser");
         if(result.hasErrors()){
-            //return "redirect:/updateUser";
+            return "redirect:/game";
         }
         userService.addGame(user,score);
         System.out.println(score);
         System.out.println(user.getLast5Games());
         userService.save(user);
         session.setAttribute("LoggedInUser",user);
-        //userService.addGame(user,score);
-        //userService.setName(user,test);
-        //userService.save(user);
-        //return "redirect:/";
         return "redirect:/game";
     }
-
-
-
 }
