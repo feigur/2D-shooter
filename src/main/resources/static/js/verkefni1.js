@@ -8,10 +8,16 @@ var liturAFugl = vec4(1.0, 1.0, 1.0, 1.0);
 var fuglErLifandi = true;
 var hleyptAf = false;
 var skot = 4;
+
+// this is a counter for the game, counts kills
 var killCounter = 0;
+// we use this to play the game.
 var button = [37,39,32,0,32]; // left right shoot
+// timer for the game, we use this both for the game clock and the countdown.
 var start = new Date().getTime();
+// this is activated when the game is over
 var gameOver = 0; // 1 when over
+// the new way to use the buttons we get from the service.
 var t0 = document.getElementById("takkar0");
 var t1 = document.getElementById("takkar1");
 var t2 = document.getElementById("takkar2");
@@ -19,13 +25,14 @@ var t3 = document.getElementById("takkar3");
 var t4 = document.getElementById("takkar4");
 
 
-
+// kill counter in the html
 let counterDisplayElem = document.querySelector('.counter-display');
+// upload button, its published when the game is over.
 let uploadButton = document.getElementById("upload");
 
 
 
-
+// this was part of the old game.
 var mouseX;             // Old value of x-coordinate
 var movement = false;   // Do we move the paddle?
 
@@ -60,6 +67,7 @@ var verticesA3 = [
     vec2( 0.9, 0.4 )
 ];
 
+// the gun
 var verticesC = [
     vec2( 0.005, -0.78 ),
     vec2(  0.005, -0.8 ),
@@ -68,6 +76,7 @@ var verticesC = [
 ];
 
 window.onload = function init() {
+    // update the buttons to the buttons each player has picked in settings.
     button[0] = t0.textContent;
     button[1] = t1.textContent;
     button[2] = t2.textContent;
@@ -134,6 +143,7 @@ window.onload = function init() {
         }
     });
 
+    // if button from the array is pushed we go left
     window.addEventListener("keydown", function(e){
         if(e.keyCode == button[1]) {
             for(i=0; i<3; i++) {
@@ -143,7 +153,7 @@ window.onload = function init() {
             gl.bufferSubData(gl.ARRAY_BUFFER, 0, flatten(verticesB));
         }
     });
-
+    // if button from the array is pushed we go right
     window.addEventListener("keydown", function(e){
         if(e.keyCode == button[2]) {
             for(i=0; i<3; i++) {
@@ -155,7 +165,7 @@ window.onload = function init() {
     });
 
 
-
+    // if button from the array is pushed we shoot.
     window.addEventListener("keydown", function(e){
         if(e.keyCode == button[4] && !hleyptAf){
             var hnitSpadi = verticesB[0][0];
@@ -275,6 +285,7 @@ function ennALifiFugl3(){
     }
 }
 
+// this is to make the bird reappear when they have been shot.
 function reapear(){
     if((fugl[0] == 0) && (gameOver != 1)){
         setTimeout(function(){
@@ -297,11 +308,14 @@ function reapear(){
 
 }
 
+// update the kill counter
 function updateDisplay(){
     counterDisplayElem.innerHTML = killCounter;
     document.getElementById("score").value = killCounter;
 };
 
+// this checks if the timer is over then the game is over, disables the birds.
+// this also makes the upload button appear.
 function checkTime(){
     var end = new Date().getTime();
     var time = end - start;
@@ -337,25 +351,27 @@ function render() {
     //Teikna skot og kanna hvort fuglinn sÃ© Ã¡ lÃ­fi.
     teiknaSkot(fugl);
 
-    // try to make the birds reaprear
+    // try to make the birds reappear
     reapear();
 
+    // calls the time function
     checkTime();
 
+    // converts the timer for the countdown clock
     var now = new Date().getTime();
     var time = (now - start)/1000;
     var myTimer = Math.round(30 - time);
 
-
+    // if the timer has 5 or less sec after, the timer will be red
     if(myTimer <= 5){
         document.getElementById("timer").style.color = "red";
     }
-
+    // counts down to 0.
     if(myTimer >= 0){
         document.getElementById("timer").innerHTML = myTimer;
     }
 
-
+    // calls the updateDisplay function.
     updateDisplay();
     window.requestAnimFrame(render);
 }

@@ -189,6 +189,8 @@
             }
         </script>-->
     </head>
+    <!-- buttons to change the name and key binds. It gets the name from thymeleaf and the valued for the buttons
+    from javascript -->
     <body class="body_main">
         <h1>Settings</h1>
         <h3>Username:</h3>
@@ -217,6 +219,8 @@
         </button>
         <h3></h3>
 
+        <!-- This is the submit button to submit the changes and a hidden value that are change with javascript for
+         Thymeleaf -->
         <div class="operator-buttons">
             <form action="#" th:action="@{/updateUser}" th:object="${keys}" method="post" class="btn_form">
                 <input type="submit" id="Submit" value="Submit" class="button-p1">

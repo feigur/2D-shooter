@@ -158,6 +158,7 @@
         <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
     </head>
 
+    <!-- the text over the game, game score and timer -->
     <h1 id="gameover" class="text-game operator-buttons-game"></h1>
     <div class="operator-text-game">
         <h1 class="text-game">You have killed: </h1>
@@ -166,6 +167,7 @@
         <h1 class="text-game" id="timer">.</h1>
     </div>
 
+    <!-- Hidden button value that we use to control the game inside the JS -->
     <div id="divCheckbox" style="visibility: hidden; display:none;">
         <p th:text="${keys[0]}" id="takkar0"></p>
         <p th:text="${keys[1]}" id="takkar1"></p>
@@ -174,6 +176,7 @@
         <p th:text="${keys[4]}" id="takkar4" ></p>
     </div>
 
+    <!-- The buttons in the html to go home, restart the game and then upload the result -->
     <div class="operator-buttons-game">
         <form action="#" th:action="@{/main}" method="get" class="btn_form-game">
             <input type="submit" value="Home" class="button-p1"/>
@@ -187,6 +190,7 @@
         </form>
     </div>
 
+    <!-- Everything here below is part of the game, old assignment from another course -->
     <script id="vertex-shader" type="x-shader/x-vertex">
 
     attribute vec4 vPosition;
