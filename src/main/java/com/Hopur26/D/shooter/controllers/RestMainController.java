@@ -35,7 +35,7 @@ public class RestMainController {
         return chat;
     }
 
-    @RequestMapping("/chat/get")
+    @RequestMapping("/chat/saekja")
     public Chat create(@RequestParam(value="username", defaultValue = "") String username){
         User exist = userService.findByUsername(username);
         System.out.println(exist);
