@@ -15,6 +15,8 @@ public class User {
 
     private String username;
     private String password;
+    private boolean admin;
+    private boolean muted;
 
     // @Embedded allows us to have a single table for each stored object that contains the user object with other nested objects
     @Embedded
@@ -34,6 +36,13 @@ public class User {
 
     }
 
+    public User(String username, String password){
+        this.username = username;
+        this.password = password;
+        this.admin = false;
+        this.muted = false;
+    }
+
     public User(KeyBinds keyBinds, Last5Games last5Games){
         this.keyBinds = keyBinds;
         this.last5Games = last5Games;
@@ -44,6 +53,8 @@ public class User {
         this.password = password;
         this.keyBinds = keyBinds;
         this.last5Games = last5Games;
+        this.admin = false;
+        this.muted = false;
     }
 
 
@@ -61,6 +72,22 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public boolean getMuted() {
+        return muted;
+    }
+
+    public void setMuted(boolean muted) {
+        this.muted = muted;
     }
 
     public String getPassword() {

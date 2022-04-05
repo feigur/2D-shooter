@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.Hopur26.D.shooter.Services.UserService;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicLong;
+
 
 @Controller
 public class UserController {
@@ -28,6 +30,7 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginPOST(User user, BindingResult result, Model model, HttpSession session){
+        System.out.println("TARARAA");
         if(result.hasErrors()){
             return "redirect:/login";
         }
