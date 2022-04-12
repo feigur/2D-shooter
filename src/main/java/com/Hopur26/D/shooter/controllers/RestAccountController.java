@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Key;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import com.Hopur26.D.shooter.Persistence.Entities.KeyBinds;
 import com.Hopur26.D.shooter.Persistence.Entities.Last5Games;import com.Hopur26.D.shooter.Persistence.Entities.Account;
@@ -73,7 +74,7 @@ public class RestAccountController {
     }
 
     @RequestMapping("/account/setmuted")
-    public Account admin(@RequestParam(value="username", defaultValue = "") String username,
+    public Account muted(@RequestParam(value="username", defaultValue = "") String username,
                       @RequestParam(value="mute", defaultValue = "") String mute){
         Account exist = accountService.findByUsername(username);
         if(exist != null){
@@ -89,5 +90,15 @@ public class RestAccountController {
             return null;
         }
         return null;
+    }
+
+    @RequestMapping("/account/findAll")
+    public List<Account> findAll(){
+        List<Account> exist = accountService.findAll();
+        if(exist != null){
+            return exist;
+        }
+        return null;
+
     }
 }

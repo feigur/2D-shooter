@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class AccountServiceImplementation implements AccountService {
     private AccountRepository accountRepository;
@@ -30,6 +32,8 @@ public class AccountServiceImplementation implements AccountService {
     public Account create(Account account) {
         return accountRepository.save(account);
     }
+
+    public List<Account> findAll(){ return accountRepository.findAll(); }
 
 
     @Override
