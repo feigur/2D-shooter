@@ -121,4 +121,22 @@ public class RestAccountController {
         }
         return null;
     }
+
+    @RequestMapping("/account/deleteaccount")
+    public Boolean delete(@RequestParam(value="admin", defaultValue = "") String admin,
+                               @RequestParam(value="account", defaultValue = "") String account){
+        Account exist = accountService.findByUsername(admin);
+        if(exist != null){
+            boolean isAdmin = exist.getAdmin();
+            if(isAdmin){
+                Account exist2 = accountService.findByUsername(account);
+                if(exist2 != null){
+                    accountService.delete(exist2);
+                    return true;
+                }
+            }
+            return null;
+        }
+        return null;
+    }
 }
