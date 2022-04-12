@@ -73,6 +73,17 @@ public class RestUserController {
         return null;
     }
 
+    @RequestMapping("/user/Unsetadmin")
+    public User notadmin(@RequestParam(value="username", defaultValue = "") String username){
+        User exist = userService.findByUsername(username);
+        if(exist != null){
+            exist.setAdmin(true);
+            userService.save(exist);
+            return exist;
+        }
+        return null;
+    }
+
     @RequestMapping("/user/setmuted")
     public User admin(@RequestParam(value="username", defaultValue = "") String username,
                       @RequestParam(value="mute", defaultValue = "") String mute){
