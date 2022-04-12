@@ -26,6 +26,7 @@ public class HighScore {
     public  HighScore(ArrayList<String> highscores){this.highscores = highscores;}
 
     public  ArrayList<String> addHighSchore(String msg){
+
         for(int i = lengthOfScore-1; i>0; i--){
             String temp = highscores.get(i-1);
             this.highscores.set(i,temp);

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.awt.desktop.ScreenSleepEvent;
 import java.security.Key;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
@@ -118,6 +119,7 @@ public class RestMainController {
     public HighScore createHighScore(@RequestParam(value="username", defaultValue = "") String username,
                        @RequestParam(value="score", defaultValue = "") String score){
         Account exist = accountService.findByUsername(username);
+        System.out.println(username + score);
         if(exist != null){
             if(score != ""){
                 HighScore highScore = highScoreService.findByID(1);
