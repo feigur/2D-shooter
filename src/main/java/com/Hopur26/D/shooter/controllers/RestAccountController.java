@@ -73,6 +73,17 @@ public class RestAccountController {
         return null;
     }
 
+    @RequestMapping("/account/setuadmin")
+    public Account unadmin(@RequestParam(value="username", defaultValue = "") String username){
+        Account exist = accountService.findByUsername(username);
+        if(exist != null){
+            exist.setAdmin(false);
+            accountService.save(exist);
+            return exist;
+        }
+        return null;
+    }
+
     @RequestMapping("/account/setmuted")
     public Account muted(@RequestParam(value="username", defaultValue = "") String username,
                       @RequestParam(value="mute", defaultValue = "") String mute){
@@ -83,6 +94,25 @@ public class RestAccountController {
                 Account exist2 = accountService.findByUsername(mute);
                 if(exist2 != null){
                     exist2.setMuted(true);
+                    accountService.save(exist2);
+                    return exist2;
+                }
+            }
+            return null;
+        }
+        return null;
+    }
+
+    @RequestMapping("/account/setunmuted")
+    public Account unmuted(@RequestParam(value="username", defaultValue = "") String username,
+                         @RequestParam(value="mute", defaultValue = "") String mute){
+        Account exist = accountService.findByUsername(username);
+        if(exist != null){
+            boolean admin = exist.getAdmin();
+            if(admin){
+                Account exist2 = accountService.findByUsername(mute);
+                if(exist2 != null){
+                    exist2.setMuted(false);
                     accountService.save(exist2);
                     return exist2;
                 }
