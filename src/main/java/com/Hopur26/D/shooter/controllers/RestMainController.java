@@ -49,9 +49,10 @@ public class RestMainController {
     }
 
     @RequestMapping("/highscore/create")
-    public HighScore createHighScore(){
-        HighScore highScore = highScoreService.create();
-        highScore.setUsername("globalHighscore");
+    public HighScore createHighScore(@RequestParam(value="gameId", defaultValue = "0") String gameId,
+                                     @RequestParam(value="gamename", defaultValue = "") String gamename){
+        Integer thisGameId = Integer.parseInt(gameId);
+        HighScore highScore = highScoreService.create(thisGameId,gamename);
         return highScore;
     }
 
@@ -88,8 +89,9 @@ public class RestMainController {
     }
 
     @RequestMapping("/highscore/saekja")
-    public HighScore saekjaHighScore(){
-        HighScore highScore = highScoreService.findByID(1);
+    public HighScore saekjaHighScore(@RequestParam(value = "gameId", defaultValue = "") String gameId){
+        Integer thisGameId = Integer.parseInt(gameId);
+        HighScore highScore = highScoreService.findByID(thisGameId);
         if(highScore != null){
             return highScore;
         }
@@ -117,15 +119,17 @@ public class RestMainController {
 
     @RequestMapping("/highscore/add")
     public HighScore createHighScore(@RequestParam(value="username", defaultValue = "") String username,
-                       @RequestParam(value="score", defaultValue = "") String score){
+                                     @RequestParam(value="score", defaultValue = "0") String score,
+                                     @RequestParam(value="gameId", defaultValue = "0") String gameId){
         Account exist = accountService.findByUsername(username);
         System.out.println(username + score);
         if(exist != null){
             if(score != ""){
-                HighScore highScore = highScoreService.findByID(1);
+                Integer thisScore = Integer.parseInt(score);
+                Integer thisGameId = Integer.parseInt(gameId);
+                HighScore highScore = highScoreService.findByID(thisGameId);
                 if(highScore != null){
-                    String merge = username + ": " + highScore;
-                    highScore.addHighSchore(merge);
+                    highScore.addHighSchore(username, thisScore);
                     highScoreService.save(highScore);
                     return highScore;
                 }

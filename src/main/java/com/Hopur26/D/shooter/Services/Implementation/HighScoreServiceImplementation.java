@@ -27,8 +27,8 @@ public class HighScoreServiceImplementation implements HighScoreService {
     }
 
 
-    public HighScore create(){
-        HighScore highScore = new HighScore();
+    public HighScore create(Integer gameID, String gamename){
+        HighScore highScore = new HighScore(gameID, gamename);
         return  highScoreRepository.save(highScore);
     }
 
