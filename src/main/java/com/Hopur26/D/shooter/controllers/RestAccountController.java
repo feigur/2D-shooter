@@ -149,4 +149,33 @@ public class RestAccountController {
         }
         return null;
     }
+
+    @RequestMapping("/account/deletemyaccount")
+    public Boolean deleteMyAccount(@RequestParam(value="username", defaultValue = "") String username,@RequestParam(value="password", defaultValue = "") String password){
+        Account user = new Account(username, password);
+
+        Account exist = accountService.login(user);
+        if(exist != null){
+            accountService.delete((exist));
+            return true;
+
+        }
+        return null;
+    }
+
+    @RequestMapping("/account/changepassword")
+    public Account changePassword(@RequestParam(value="username", defaultValue = "") String username,
+                                   @RequestParam(value="password", defaultValue = "") String password,
+                                   @RequestParam(value="newpassword", defaultValue = "") String newPassword){
+        Account user = new Account(username, password);
+        Account exist = accountService.login(user);
+        if(exist != null){
+            exist.setPassword(newPassword);
+            accountService.save((exist));
+            return exist;
+
+        }
+        return null;
+    }
+
 }
