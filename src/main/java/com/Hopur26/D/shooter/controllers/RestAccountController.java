@@ -178,4 +178,18 @@ public class RestAccountController {
         return null;
     }
 
+    @RequestMapping("/account/photoID")
+    public Account changePhotoID(@RequestParam(value="username", defaultValue = "") String username,
+                                  @RequestParam(value="photoID", defaultValue = "") String photoID){
+        Account exist = accountService.findByUsername(username);
+        if(exist != null){
+            Integer ID = Integer.parseInt(photoID);
+            exist.setPhotoID(ID);
+            accountService.save((exist));
+            return exist;
+
+        }
+        return null;
+    }
+
 }
