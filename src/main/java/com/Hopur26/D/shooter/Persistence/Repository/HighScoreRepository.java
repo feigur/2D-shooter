@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface HighScoreRepository extends JpaRepository<HighScore, Long> {
     HighScore save(HighScore highScore);
-    HighScore findByID(long ID);
+    HighScore findByID(Integer ID);
 }
 
