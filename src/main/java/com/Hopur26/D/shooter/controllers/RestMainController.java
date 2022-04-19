@@ -90,7 +90,9 @@ public class RestMainController {
 
     @RequestMapping("/highscore/saekja")
     public HighScore saekjaHighScore(@RequestParam(value = "gameId", defaultValue = "") String gameId){
+        System.out.println(gameId);
         Integer thisGameId = Integer.parseInt(gameId);
+        System.out.println(thisGameId);
         HighScore highScore = highScoreService.findByID(thisGameId);
         if(highScore != null){
             return highScore;

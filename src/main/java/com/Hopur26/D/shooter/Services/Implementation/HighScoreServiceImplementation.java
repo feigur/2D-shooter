@@ -34,7 +34,7 @@ public class HighScoreServiceImplementation implements HighScoreService {
 
 
     @Override
-    public HighScore findByID(long ID) {
+    public HighScore findByID(Integer ID) {
         return highScoreRepository.findByID(ID);
     }
 
