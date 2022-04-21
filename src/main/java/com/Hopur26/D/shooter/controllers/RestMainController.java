@@ -147,7 +147,7 @@ public class RestMainController {
         if(exist != null){
             boolean admin = exist.getAdmin();
             if((admin == true) && (title != "") && (story != "")){
-                News news = newsService.findByID(1);
+                News news = newsService.findByID(2);
                 if(news != null){
                     String merge = title + ": " + story;
                     news.addNews(title,story,username);
