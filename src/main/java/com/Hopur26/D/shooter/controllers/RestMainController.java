@@ -59,7 +59,6 @@ public class RestMainController {
     @RequestMapping("/news/create")
     public News createNews(){
         News news = newsService.create();
-        news.setUsername("adalNews3");
         return news;
     }
 
@@ -151,7 +150,7 @@ public class RestMainController {
                 News news = newsService.findByID(1);
                 if(news != null){
                     String merge = title + ": " + story;
-                    news.addNews(merge);
+                    news.addNews(title,story,username);
                     newsService.save(news);
                     return news;
                 }
